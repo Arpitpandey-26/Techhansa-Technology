@@ -1,0 +1,16 @@
+/* src/index.css (Modified for Real Golden Tone) */
+@import "tailwindcss";
+
+@theme {
+  /* corporate blues retains reference tone */
+  --color-techDark: #0f172a;    
+  --color-techBlue: #1e3a8a;    
+  --color-techLight: #f8fafc;   
+  
+  /* UPDATED GOLDEN: carefully sampled from image_7.png text/accents */
+  --color-techGolden: #D4A22E;  
+  --color-goldenHover: #E4C77D; /* Hover states ke liye slightly lighter version */
+
+  /* Sleek corporate font */
+  --font-sans: "Inter", sans-serif;
+}
