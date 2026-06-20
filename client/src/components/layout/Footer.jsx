@@ -39,7 +39,7 @@ const Footer = () => {
         <div 
           className="absolute inset-0 pointer-events-none opacity-80"
           style={{
-            backgroundImage: 'radial-gradient(#cbd5e1 1.4px, transparent 1.6px)',
+            backgroundImage: 'radial-gradient(#cbd5e1 1.4px, transparent 2px)',
             backgroundSize: '24px 26px'
           }}
         ></div>
@@ -53,9 +53,9 @@ const Footer = () => {
             
             {/* COLUMN 1: Brand Logo & Information */}
             <div className="flex flex-col pr-4">
-              <div className="flex items-center mb-6 cursor-pointer">
+              <div className="flex items-center mb-4 ml-16 cursor-pointer">
                 {/* Logo Container */}
-                <div className="w-22 h-22 bg-white border border-gray-200 rounded-full flex items-center justify-center mr-3 shadow-sm overflow-hidden">
+                <div className="w-26 h-26 bg-white border border-gray-200 -mt-6 rounded-full flex items-center justify-center shadow-sm overflow-hidden">
                   
                      <img 
                 src="/src/assets/logo.png" 
@@ -66,14 +66,15 @@ const Footer = () => {
                 </div>
                 {/* Brand Typography perfectly matching Navbar style */}
                 <div className="flex flex-col justify-center">
-                  <span className="text-[22px] font-extrabold text-techGolden tracking-tight leading-none ">
-                    Techhansa
-                  </span>
-                  <span className="text-[16px] text-gray-500 font-serif italic mt-1 tracking-wide leading-none">
+                 
+                  {/* <span className="text-[16px] text-gray-500 font-serif italic mt-1 tracking-wide leading-none">
                     Technology
-                  </span>
+                  </span> */}
                 </div>
               </div>
+               <span className="text-[22px] font-extrabold text-techGolden tracking-tight mb-4 -ml-2 leading-none ">
+                    Techhansa Technology
+                  </span>
               <p className="text-[13px] text-gray-600 leading-relaxed mb-6">
                 Your strategic IT partner for enterprise success. We engineer future-ready solutions across Cloud, Consulting, and Managed Services.
               </p>

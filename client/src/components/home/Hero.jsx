@@ -1,30 +1,51 @@
 import React from 'react';
 
+/* INSTRUCTION: 
+  Importing the video file from the assets folder.
+  Based on your folder structure, we go up two levels (../../) to reach src/assets/
+*/
+import heroVideo from '../../assets/Hero-video.mp4';
+
 const Hero = () => {
   return (
-    /* Full-screen visually striking banner. 
-       Height set to standard hero proportion. */
-    <section className="relative h-[72vh] w-full flex items-center justify-center overflow-hidden bg-gray-100">
+    /* =========================================
+       HERO SECTION CONTAINER
+       ========================================= */
+    <section className="relative h-[72vh] w-full flex items-center justify-center overflow-hidden bg-gray-900">
       
-      {/* Background Image Setup (Airy and bright like the screenshot) */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        /* Yeh ek dummy bright sky image hai taaki apko screenshot jaisa feel aaye. Baad me aap apne balloons/sky ki image laga lena. */
-        style={{ backgroundImage: "url('https://i.pinimg.com/736x/fd/11/2b/fd112b2364a7e45cfc19951201516b15.jpg')" }}
-      >
-        {/* Sirf halka sa shadow effect taaki white text easily read ho sake, no dark overlay */}
-        <div className="absolute inset-0 bg-gray-600/30"></div>
+      {/* =========================================
+          VIDEO BACKGROUND SETUP
+          ========================================= */}
+      <div className="absolute inset-0 w-full h-full">
+        <video 
+          className="w-full h-full object-cover"
+          autoPlay 
+          loop 
+          muted 
+          playsInline /* Crucial for iOS devices to play video inline instead of fullscreen */
+        >
+          <source src={heroVideo} type="video/mp4" />
+          {/* Fallback text if the browser doesn't support video */}
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Dark overlay to ensure white text remains readable over moving video elements */}
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
-      {/* Content - Centered, bold, white typography matching screenshot */}
-      <div className="relative z-10 text-center   px-4 max-w-5xl mx-auto flex flex-col items-center">
+      {/* =========================================
+          MAIN TEXT AND CALL-TO-ACTION (CTA)
+          ========================================= */}
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
         
-        {/* Strong headline. Using the exact text from your screenshot for perfect matching. */}
-        <h1 className="text-4xl sm:text-2xl md:text-7xl font-base text-white font-serif italic tracking-wide drop-shadow-lg mb-8">
-         Accelerate Your Digital Journey with a Digital Transformation company
+        {/* Strong headline using your modified text and serif/italic styling.
+            (Fixed a small responsive scaling issue: sm:text-5xl ensures it grows larger on tablets) 
+        */}
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif italic text-white tracking-wide drop-shadow-lg mb-8 leading-tight">
+          Accelerate Your Digital Journey with a Digital Transformation company
         </h1>
         
-        {/* CTA button. Using our Golden color with a sleek corporate look. */}
+        {/* CTA button with sleek corporate look and hover animation */}
         <button className="px-8 py-3 bg-techGolden hover:bg-goldenHover text-white font-medium rounded text-lg transition duration-300 shadow-lg transform hover:-translate-y-1">
           Get Started
         </button>

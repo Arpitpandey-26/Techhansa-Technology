@@ -48,11 +48,11 @@ const Navbar = () => {
             {/* Brand Typography - Text sizes shrink dynamically */}
             <div className="flex flex-col justify-center">
               <span className={`font-extrabold text-techGolden tracking-tight leading-none  transition-all duration-300 ease-in-out ${isScrolled ? 'text-[22px]' : 'text-[30px]'}`}>
-                Techhansa
+                Techhansa Technology
               </span>
-              <span className={`text-gray-500 font-serif italic tracking-wide leading-none transition-all duration-300 ease-in-out ${isScrolled ? 'text-[16px] mt-0.5' : 'text-[25px] mt-1'}`}>
+              {/* <span className={`text-gray-500 font-serif italic tracking-wide leading-none transition-all duration-300 ease-in-out ${isScrolled ? 'text-[16px] mt-0.5' : 'text-[25px] mt-1'}`}>
                 Technology
-              </span>
+              </span> */}
             </div>
           </div>
 
@@ -60,7 +60,8 @@ const Navbar = () => {
             DESKTOP MENU LINKS SECTION
             ========================================= */}
           <div className="hidden lg:flex space-x-8 items-center">
-            <a href="#" className="text-gray-600 hover:text-techGolden transition duration-300 font-medium text-[15px]">Home</a>
+            <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">Home</a>
+             <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">About us</a>
             
             {/* Services Dropdown - Trigger area height syncs with navbar height */}
             <div 
@@ -68,7 +69,7 @@ const Navbar = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center text-gray-600 hover:text-techGolden transition duration-300 font-medium text-[15px]">
+              <button className="flex items-center text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">
                 Services
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
@@ -87,10 +88,10 @@ const Navbar = () => {
               )}
             </div>
 
-            <a href="#" className="text-gray-600 hover:text-techGolden transition duration-300 font-medium text-[15px]">Industry</a>
-            <a href="#" className="text-gray-600 hover:text-techGolden transition duration-300 font-medium text-[15px]">Partners</a>
+            <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">Industry</a>
+            <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">Partners</a>
             
-            <a href="#" className="text-gray-600 hover:text-techGolden transition duration-300 font-medium text-[15px]">
+            <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">
               Contact Us
             </a>
           </div>
