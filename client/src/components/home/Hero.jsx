@@ -1,17 +1,10 @@
 import React from 'react';
-
-/* INSTRUCTION: 
-  Importing the video file from the assets folder.
-  Based on your folder structure, we go up two levels (../../) to reach src/assets/
-*/
 import heroVideo from '../../assets/Hero-video.mp4';
 
 const Hero = () => {
   return (
-    /* =========================================
-       HERO SECTION CONTAINER
-       ========================================= */
-    <section className="relative h-[72vh] w-full flex items-center justify-center overflow-hidden bg-gray-900">
+   
+    <section className="relative h-[75vh] w-full flex items-center justify-center overflow-hidden bg-gray-950">
       
       {/* =========================================
           VIDEO BACKGROUND SETUP
@@ -22,31 +15,57 @@ const Hero = () => {
           autoPlay 
           loop 
           muted 
-          playsInline /* Crucial for iOS devices to play video inline instead of fullscreen */
+          playsInline /* Crucial for iOS devices to play video inline */
         >
           <source src={heroVideo} type="video/mp4" />
-          {/* Fallback text if the browser doesn't support video */}
-          Your browser does not support the video tag.
+         
         </video>
         
-        {/* Dark overlay to ensure white text remains readable over moving video elements */}
-        <div className="absolute inset-0 bg-black/50"></div>
+        {/* Slightly darker overlay to ensure high contrast for the text */}
+        <div className="absolute inset-0 bg-black/45"></div>
       </div>
 
       {/* =========================================
-          MAIN TEXT AND CALL-TO-ACTION (CTA)
+          MAIN CONTENT AREA (Typography & CTA)
+          Added subtle fade-in animation for an impressive entrance.
           ========================================= */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center animate-fade-in-up">
         
-        {/* Strong headline using your modified text and serif/italic styling.
-            (Fixed a small responsive scaling issue: sm:text-5xl ensures it grows larger on tablets) 
-        */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif italic text-white tracking-wide drop-shadow-lg mb-8 leading-tight">
-          Accelerate Your Digital Journey with a Digital Transformation company
+        {/* =========================================
+            PRO TYPOGRAPHY REDESIGN
+            Breaking the sentence into meaningful, highly-styled parts for maximum impact.
+            We use Inter/Sans for structure and Serif for elegant accents.
+            ========================================= */}
+        <h1 className="leading-tight drop-shadow-2xl mb-12">
+          
+          {/* Part 1: Top introductory phrase - Clean, slightly spaced, modern Sans-serif */}
+          <span className="block text-xl md:text-2xl font-sans font-semibold text-gray-100 tracking-widest uppercase mb-4 opacity-90">
+            Accelerate Your
+          </span>
+          
+          {/* Part 2: Main Focus Topic - MASSIVE, Bold, Sans-serif (Khatarnak element) */}
+          <span className="block text-6xl md:text-8xl font-sans font-extrabold text-white tracking-tighter mb-6 leading-none">
+            Digital Journey
+          </span>
+          
+          {/* Part 3: Secondary topic - Pair modern sans with an elegant, larger golden serif */}
+          <span className="block text-3xl sm:text-4xl md:text-5xl font-serif  text-techGolden tracking-wide leading-snug max-w-4xl mx-auto">
+            
+            {/* Inline structure phrase: Sans-serif, modern, white */}
+            <span className="font-sans font-medium text-white not-italic text-xl md:text-2xl tracking-tight mr-3">with a</span>
+            
+            {/* Target phrase: Golden, elegant Serif with a subtle metallic gradient effect */}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-techGolden via-goldenHover to-techGolden font-bold">
+                Digital Transformation
+            </span>
+            
+            {/* Inline end phrase */}
+            <span className="font-sans font-medium text-white not-italic text-xl md:text-2xl tracking-tight ml-3">company</span>
+          </span>
         </h1>
         
-        {/* CTA button with sleek corporate look and hover animation */}
-        <button className="px-8 py-3 bg-techGolden hover:bg-goldenHover text-white font-medium rounded text-lg transition duration-300 shadow-lg transform hover:-translate-y-1">
+        {/* CTA button with enhanced shadow and lift animation */}
+        <button className="px-10 py-4 bg-techGolden hover:bg-goldenHover text-white font-bold rounded-md text-[16px] uppercase tracking-wider transition-all duration-300 shadow-[0_8px_20px_rgba(212,162,46,0.3)] hover:shadow-[0_12px_25px_rgba(212,162,46,0.25)] transform hover:-translate-y-1">
           Get Started
         </button>
 

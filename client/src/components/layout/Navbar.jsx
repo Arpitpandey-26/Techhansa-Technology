@@ -47,7 +47,7 @@ const Navbar = () => {
             
             {/* Brand Typography - Text sizes shrink dynamically */}
             <div className="flex flex-col justify-center">
-              <span className={`font-extrabold text-techGolden tracking-tight leading-none  transition-all duration-300 ease-in-out ${isScrolled ? 'text-[22px]' : 'text-[30px]'}`}>
+              <span className={`font-bold text-techGolden tracking-tight leading-none  transition-all duration-300 ease-in-out ${isScrolled ? 'text-[22px]' : 'text-[30px]'}`}>
                 Techhansa Technology
               </span>
               {/* <span className={`text-gray-500 font-serif italic tracking-wide leading-none transition-all duration-300 ease-in-out ${isScrolled ? 'text-[16px] mt-0.5' : 'text-[25px] mt-1'}`}>
