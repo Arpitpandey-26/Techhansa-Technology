@@ -3,8 +3,7 @@ import heroVideo from '../../assets/Hero-video.mp4';
 
 const Hero = () => {
   return (
-   
-    <section className="relative h-[75vh] w-full flex items-center justify-center overflow-hidden bg-gray-950">
+    <section className="relative h-[82vh] w-full flex items-center justify-center overflow-hidden bg-gray-950">
       
       {/* =========================================
           VIDEO BACKGROUND SETUP
@@ -18,11 +17,10 @@ const Hero = () => {
           playsInline /* Crucial for iOS devices to play video inline */
         >
           <source src={heroVideo} type="video/mp4" />
-         
         </video>
         
         {/* Slightly darker overlay to ensure high contrast for the text */}
-        <div className="absolute inset-0 bg-black/45"></div>
+        <div className="absolute inset-0 bg-[#113a71] bg-cover bg-center opacity-35"></div>
       </div>
 
       {/* =========================================
@@ -49,7 +47,7 @@ const Hero = () => {
           </span>
           
           {/* Part 3: Secondary topic - Pair modern sans with an elegant, larger golden serif */}
-          <span className="block text-3xl sm:text-4xl md:text-5xl font-serif  text-techGolden tracking-wide leading-snug max-w-4xl mx-auto">
+          <span className="block text-3xl sm:text-4xl md:text-5xl font-serif text-techGolden tracking-wide leading-snug max-w-4xl mx-auto">
             
             {/* Inline structure phrase: Sans-serif, modern, white */}
             <span className="font-sans font-medium text-white not-italic text-xl md:text-2xl tracking-tight mr-3">with a</span>
@@ -70,6 +68,31 @@ const Hero = () => {
         </button>
 
       </div>
+
+      {/* =========================================
+          SCROLL DOWN INDICATOR (Animated Bounce)
+          Positioned absolutely at the bottom center.
+          ========================================= */}
+      <a 
+        href="#about" 
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity duration-300 z-20 group"
+      >
+        <span className="text-white text-xs font-semibold tracking-[0.2em] uppercase mb-2 drop-shadow-md group-hover:text-techGolden transition-colors duration-300">
+          Scroll Down
+        </span>
+        <div className="animate-bounce bg-white/10 p-2 rounded-full border border-white/20 backdrop-blur-sm group-hover:border-techGolden transition-colors duration-300">
+          <svg 
+            className="w-5 h-5 text-white group-hover:text-techGolden transition-colors duration-300" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
+
     </section>
   );
 };
