@@ -1,15 +1,36 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+/* Components Import */
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+
+/* Pages Import */
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage'; // Aapka naya page
 
 function App() {
   return (
-    /* min-h-screen: Taki page kam se kam puri screen ki height le
-      bg-techLight: Jo humne abhi v4 index.css mein define kiya hai
-      selection classes: Jab user text select karega toh professional golden color aayega
-    */
-    <div className="min-h-screen bg-techLight font-sans selection:bg-techGolden selection:text-techDark">
-      <HomePage />
-    </div>
+    // Router hamari website mein navigation enable karta hai
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        
+        {/* Navbar har page ke top par rahega */}
+        <Navbar />
+
+        {/* Routes decide karta hai ki URL ke hisaab se kya dikhana hai */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </main>
+
+        {/* Footer har page ke bottom par rahega */}
+        <Footer />
+        
+      </div>
+    </Router>
   );
 }
 

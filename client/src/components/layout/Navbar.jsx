@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -60,8 +61,12 @@ const Navbar = () => {
             DESKTOP MENU LINKS SECTION
             ========================================= */}
           <div className="hidden lg:flex space-x-8 items-center">
-            <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">Home</a>
-             <a href="#" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">About us</a>
+           <a href="/" className="text-gray-700 hover:text-techGolden font-medium transition-colors">
+  Home
+</a>
+             <a href="/about" className="text-gray-500 hover:text-techGolden transition duration-300 font-medium text-[17px]">
+                About us
+              </a>
             
             {/* Services Dropdown - Trigger area height syncs with navbar height */}
             <div 

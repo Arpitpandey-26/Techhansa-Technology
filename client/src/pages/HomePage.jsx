@@ -1,31 +1,54 @@
-// src/pages/HomePage.jsx
-import React from 'react';
-import Navbar from '../components/layout/Navbar';
+import React, { useEffect } from 'react';
+/* Importing the core Lenis library instead of the React wrapper */
+import Lenis from 'lenis';
+
+/* Apne saare components import karein */
+
 import Hero from '../components/home/Hero';
 import AboutOverview from '../components/home/AboutOverview';
 import ServicesSummary from '../components/home/ServicesSummary';
-import Footer from '../components/layout/Footer';
+import VisionTechnology from '../components/home/VisionTechnology';
+
 
 const HomePage = () => {
+  
+  /* =========================================
+     VANILLA LENIS SETUP FOR REACT 19
+     This avoids all hook collision errors while keeping the butter-smooth scroll.
+     ========================================= */
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.08, // Controls the smoothness (lower is smoother)
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Cleanup function to prevent memory leaks if component unmounts
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div className="font-sans bg-techLight text-gray-800">
-      {/* Sticky Header with Multi-level Dropdown */}
-      <Navbar />
-
-      {/* Main Content */}
+    <div className="font-sans text-gray-800 bg-white">
+      
+      
+      
       <main>
-        {/* Full-screen Hero Section with CTA */}
         <Hero />
-        
-        {/* About Techhansa */}
         <AboutOverview />
-        
-        {/* Services Cards with Hover & AOS animations */}
         <ServicesSummary />
+        <VisionTechnology />
       </main>
-
-      {/* Website Footer */}
-      <Footer />
+      
+  
+      
     </div>
   );
 };
