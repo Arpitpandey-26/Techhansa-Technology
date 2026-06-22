@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 /* ============================================================
    CUSTOM ANIMATED COUNTER COMPONENT (Reused for Stats)
@@ -55,6 +55,40 @@ const AnimatedCounter = ({ target, suffix }) => {
    ABOUT US PAGE MAIN COMPONENT
    ============================================================ */
 const AboutPage = () => {
+
+
+    // ==========================================================
+  // SECTION 4 (MISSION & VISION) KE LIYE 3D SCROLL HOOKS
+  // Inko return() se upar hi rakhna hota hai
+  // ==========================================================
+ const missionVisionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: missionVisionRef,
+    offset: ["start start", "end end"]
+  });
+
+  // 1. MAKKHAN SMOOTHNESS KE LIYE USESPRING
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 80,  // Kitna tight ya loose bounce chahiye
+    damping: 25,    // Jhatka rokne ke liye
+    restDelta: 0.001
+  });
+
+  // 2. TIMINGS FIX (Dono cards aapas me takrayenge nahi)
+  
+  // Mission Card: 0 se 30% scroll tak ruka rahega, fir piche jayega
+  const missionScale = useTransform(smoothProgress, [0, 0.3, 0.6], [1, 1, 0.9]);
+  const missionY = useTransform(smoothProgress, [0, 0.3, 0.6], [0, 0, -60]);
+  const missionOpacity = useTransform(smoothProgress, [0, 0.3, 0.6], [1, 1, 0]); // Pura hide kar diya taki text overlap na ho
+  const missionRotateX = useTransform(smoothProgress, [0, 0.3, 0.6], [0, 0, 5]);
+
+  // Vision Card: 40% scroll par aana shuru hoga, takraav nahi hoga
+  const visionY = useTransform(smoothProgress, [0.4, 0.8, 1], [600, 0, 0]);
+  const visionScale = useTransform(smoothProgress, [0.4, 0.8, 1], [0.8, 1, 1]);
+  const visionRotateX = useTransform(smoothProgress, [0.4, 0.8, 1], [25, 0, 0]);
+  const visionOpacity = useTransform(smoothProgress, [0.4, 0.6, 1], [0, 1, 1]);
+
   return (
     <div className="bg-[#f8fafc] font-sans text-gray-800">
       
@@ -117,7 +151,7 @@ const AboutPage = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-sm font-bold text-techGolden uppercase tracking-widest mb-2">Discover Our Identity</h2>
-              <h3 className="text-4xl font-extrabold text-gray-600 mb-6">Who We Are</h3>
+              <h3 className="text-4xl font-extrabold text-gray-700 mb-6"> <span className="text-techGolden">W</span>ho We Are</h3>
               
               <p className="text-gray-600 text-lg leading-relaxed mb-6 text-justify">
                 At Techhansa Technology, we help organizations navigate their digital transformation journey through technology-driven solutions and strategic consulting.
@@ -132,24 +166,67 @@ const AboutPage = () => {
       </section>
 
      {/* =========================================
-          3. WHAT WE DO SECTION (Video Reference: Overlapping Circles)
+          3A. WHAT WE DO SECTION (Split Layout like Screenshot 1)
           ========================================= */}
-      <section className="py-24 bg-[#f8fafc] relative overflow-hidden">
+      <section className="pt-24 pb-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Left Side: Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              {/* Heading styled exactly like the screenshot (Gray/Dark Gray tone) */}
+              <h2 className="text-4xl md:text-[42px] font-bold text-gray-600 mb-8 tracking-tight"> <span className="text-techGolden">W</span>hat We Do?</h2>
+              
+              {/* Paragraphs split for readability */}
+              <p className="text-gray-600 text-[17px] leading-relaxed mb-6 text-justify">
+                At Techhansa Technology, we help organizations navigate their digital transformation journey through technology-driven solutions and strategic consulting. From designing enterprise software applications to implementing cloud infrastructure and automation solutions, we empower businesses to operate more efficiently and competitively.
+              </p>
+              
+              <p className="text-gray-600 text-[17px] leading-relaxed text-justify">
+                We enable business leaders to seamlessly adopt their digital journey and enhance the utilization of their deployed infrastructure and applications while managing and monitoring their day to day operations.
+              </p>
+            </motion.div>
+
+            {/* Right Side: Illustration/Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex justify-center"
+            >
+              {/* Note: Using a premium Unsplash image related to business/tech problem solving to match the illustration vibe */}
+              <img 
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
+                alt="What We Do Illustration" 
+                className="w-full max-w-lg rounded-2xl shadow-lg object-cover h-[350px]"
+              />
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+          3B. TECHHANSA EXPERTISE (Overlapping Circles like Screenshot 2)
+          ========================================= */}
+      <section className="pb-24 bg-white relative overflow-hidden">
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-sm font-bold text-techGolden uppercase tracking-widest mb-2">Our Expertise</h2>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-gray-600 mb-6">What We Do</h3>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              From designing enterprise software applications to implementing cloud infrastructure and automation solutions, we empower businesses to operate more efficiently and competitively.
-            </p>
+          <div className="text-center mb-16">
+            <h3 className="text-4xl md:text-[40px] font-bold text-gray-600 tracking-tight"> 
+              Techhansa Expertise
+            </h3>
           </div>
 
-          {/* =========================================
-              OVERLAPPING CIRCLES GRID (Exact Video Match)
-              ========================================= */}
-          <div className="flex flex-wrap justify-center items-center pt-8 pb-12">
+          {/* Overlapping Circles Grid */}
+          <div className="flex flex-wrap justify-center items-center">
             {[
               { 
                 title: "Enterprise Software", 
@@ -182,31 +259,25 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                /* MAGIC HAPPENS HERE: 
-                  - Negative margin (-ml-4 to -ml-8) creates the overlap.
-                  - Alternating background colors based on odd/even index.
-                  - Thick white border (border-[8px]).
-                  - hover:-translate-y-6 creates the jump effect.
-                  - hover:z-20 ensures the hovered circle always pops to the very front.
-                */
+                /* Same overlap magic with Techhansa colors (Dark Blue & Golden) */
                 className={`
                   relative z-10 flex flex-col items-center justify-center text-center
-                  w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56
-                  rounded-full border-[6px] md:border-[8px] border-white 
+                  w-40 h-40 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56
+                  rounded-full border-[8px] border-white 
                   shadow-[0_8px_20px_rgba(0,0,0,0.12)] 
                   transition-all duration-300 ease-out cursor-pointer
-                  hover:-translate-y-4 md:hover:-translate-y-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] hover:z-20
-                  ${index !== 0 ? '-ml-6 sm:-ml-8 md:-ml-10 lg:-ml-12' : ''} 
-                  ${index % 2 === 0 ? 'bg-[#113a71]' : 'bg-techGolden'}
+                  hover:-translate-y-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] hover:z-20
+                  ${index !== 0 ? '-ml-8 sm:-ml-10 md:-ml-12 lg:-ml-14' : ''} 
+                  ${index % 2 === 0 ? 'bg-[#113a71]' : 'bg-[#C19326]'}
                 `}
               >
-                {/* White Icon */}
-                <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white mb-2 sm:mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* Icon */}
+                <svg className="w-10 h-10 md:w-12 md:h-12 text-white mb-2 md:mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={service.icon}></path>
                 </svg>
                 
-                {/* White Text */}
-                <h4 className="text-white text-[11px] sm:text-sm md:text-[15px] font-bold px-3 md:px-6 leading-tight drop-shadow-sm">
+                {/* Title */}
+                <h4 className="text-white text-[13px] md:text-[15px] font-bold px-4 leading-tight drop-shadow-sm">
                   {service.title}
                 </h4>
               </motion.div>
@@ -215,48 +286,78 @@ const AboutPage = () => {
 
         </div>
       </section>
-
-      {/* =========================================
-          4. MISSION & VISION
+{/* =========================================
+          4. MISSION & VISION (Khatarnak 3D Sticky Scroll Section)
           ========================================= */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+       
+      <section ref={missionVisionRef} className="h-[200vh] bg-white relative">
+        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden perspective-[1500px]">
+          
+          {/* Subtle Grid Background for White Theme */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+          {/* Light Background Ambient Glow */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-techGolden/10 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#113a71]/10 rounded-full blur-[100px]"></div>
+
+          <div className="absolute top-18 w-full text-center z-30 pointer-events-none">
+            <h2 className="text-sm font-bold text-techGolden uppercase tracking-[0.3em] mb-2">The Core</h2>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-gray-600 tracking-tight drop-shadow-sm">
+            <span className="text-techGolden">O</span>ur Driving Forces
+            </h3>
+          </div>
+
+          <div className="relative w-full max-w-5xl mx-auto h-[60vh] md:h-[50vh] flex items-center justify-center mt-10">
             
+            {/* MISSION CARD (Light Theme) */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-[#f8fafc] p-10 rounded-2xl shadow-sm border-t-4 border-techGolden hover:shadow-xl transition-shadow duration-300"
+              style={{ 
+                scale: missionScale, y: missionY, opacity: missionOpacity, rotateX: missionRotateX,
+                transformStyle: "preserve-3d" 
+              }}
+              className="absolute w-[90%] md:w-3/4 h-full bg-white/80 backdrop-blur-3xl border border-techGolden/30 rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center shadow-[0_15px_50px_rgba(193,147,38,0.15)] origin-top z-10"
             >
-              <div className="w-14 h-14 bg-techGolden/10 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-techGolden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Huge Background Letter Mask */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none overflow-hidden rounded-[2.5rem]">
+                <span className="text-[25rem] font-black text-techGolden leading-none">M</span>
+              </div>
+
+              <div className="w-20 h-20 bg-gradient-to-br from-techGolden to-yellow-600 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-techGolden/20 transform -translate-z-[50px]">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                To empower organizations with innovative digital solutions that drive growth, efficiency, and long-term success by blending deep industry expertise with cutting-edge technology.
+              
+              <h3 className="text-4xl font-bold text-gray-800 mb-6 uppercase tracking-wider relative transform translate-z-[30px]">Our Mission</h3>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-2xl relative transform translate-z-[40px]">
+                To empower organizations with innovative digital solutions that drive growth, efficiency, and long-term success.
               </p>
             </motion.div>
 
+            {/* VISION CARD (Light Theme) */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-[#f8fafc] p-10 rounded-2xl shadow-sm border-t-4 border-[#113a71] hover:shadow-xl transition-shadow duration-300"
+              style={{ 
+                y: visionY, scale: visionScale, rotateX: visionRotateX, opacity: visionOpacity,
+                transformStyle: "preserve-3d"
+              }}
+              className="absolute w-[90%] md:w-3/4 h-full bg-white/90 backdrop-blur-3xl border border-[#113a71]/30 rounded-[2.5rem] p-10 flex flex-col justify-center items-center text-center shadow-[0_-15px_50px_rgba(17,58,113,0.15)] origin-bottom z-20"
             >
-              <div className="w-14 h-14 bg-[#113a71]/10 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-[#113a71]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Huge Background Letter Mask */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none overflow-hidden rounded-[2.5rem]">
+                <span className="text-[25rem] font-black text-[#113a71] leading-none">V</span>
+              </div>
+
+              <div className="w-20 h-20 bg-gradient-to-br from-[#113a71] to-blue-800 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-[#113a71]/30 transform -translate-z-[50px]">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                To become a globally recognized and trusted partner in digital transformation, setting new standards for technology-driven innovation and sustainable business excellence.
+              
+              <h3 className="text-4xl font-bold text-gray-700 mb-6 uppercase tracking-wider relative transform translate-z-[30px]">Our Vision</h3>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-2xl relative transform translate-z-[40px]">
+                To become a globally recognized and trusted partner in digital transformation, setting new standards for tech-driven innovation.
               </p>
             </motion.div>
 
@@ -307,7 +408,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Why Choose Techhansa</h2>
+            <h2 className="text-4xl font-extrabold text-gray-600 mb-4"> <span className="text-techGolden">W</span>hy Choose Techhansa</h2>
             <div className="w-24 h-1 bg-techGolden mx-auto rounded-full"></div>
           </div>
 
