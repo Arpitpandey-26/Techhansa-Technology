@@ -83,7 +83,7 @@ const Navbar = () => {
               {isServicesOpen && (
                 <div className={`absolute left-0 w-64 bg-white shadow-lg border-t-2 border-techGolden animate-fade-in-down transition-all duration-300 ease-in-out ${isScrolled ? 'top-[70px]' : 'top-[100px]'}`}>
                   <div className="py-2">
-                    <a href="#" className="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-techGolden transition-colors">Cloud Services</a>
+                    <a href="/services/cloud-services" className="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-techGolden transition-colors">Cloud Services</a>
                     <a href="#" className="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-techGolden transition-colors">Digital Workplace</a>
                     <a href="#" className="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-techGolden transition-colors">Automation</a>
                     <a href="#" className="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-techGolden transition-colors">Managed Services</a>

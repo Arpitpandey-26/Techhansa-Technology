@@ -7,7 +7,8 @@ import Footer from './components/layout/Footer';
 
 /* Pages Import */
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage'; // Aapka naya page
+import AboutPage from './pages/AboutPage'; 
+import CloudServices from './pages/services/CloudServices';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/services/cloud-services" element={<CloudServices />} />
           </Routes>
         </main>
 
