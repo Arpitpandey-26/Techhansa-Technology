@@ -24,14 +24,14 @@ const Architecting = () => {
 
   // Orbiting Nodes for the Methodology Diagram
   const orbitNodes = [
-    { label: "Storage", top: "10%", left: "20%" },
-    { label: "Mobile", top: "0%", left: "50%" },
-    { label: "Applications", top: "15%", left: "80%" },
-    { label: "Database", top: "50%", left: "95%" },
-    { label: "Hybrid Cloud", top: "85%", left: "80%" },
-    { label: "Public Cloud", top: "95%", left: "50%" },
-    { label: "Private Cloud", top: "85%", left: "20%" },
-    { label: "Server", top: "50%", left: "5%" },
+    { label: "Storage", top: "5%", left: "15%" },
+    { label: "Mobile", top: "0%", left: "46%" },
+    { label: "Applications", top: "10%", left: "75%" },
+    { label: "Database", top: "40%", left: "85%" },
+    { label: "Hybrid Cloud", top: "75%", left: "70%" },
+    { label: "Public Cloud", top: "85%", left: "39%" },
+    { label: "Private Cloud", top: "65%", left: "5%" },
+    { label: "Server", top: "30%", left: "1%" },
   ];
 
   return (

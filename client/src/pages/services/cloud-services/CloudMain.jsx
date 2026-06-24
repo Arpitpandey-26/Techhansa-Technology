@@ -121,10 +121,12 @@ const CloudServices = () => {
       {/* =========================================
           1. PREMIUM HERO SECTION
           ========================================= */}
-      <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden bg-gray-950">
-        <div className="absolute inset-0 z-0">
+      <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden ">
+        <div className="absolute inset-0 z-0"> 
+          <img className='h-full w-full' src="https://i.pinimg.com/736x/bf/50/20/bf502027be0965bcc76d6bf0cb83279f.jpg" alt="" />
+           <div className="absolute inset-0 bg-[#113a71] bg-cover bg-center opacity-75"></div>
           <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#113a71]/30 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-techGolden/10 rounded-full blur-[100px] mix-blend-screen opacity-50"></div>
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-techGolden/10 rounded-full blur-[100px] mix-blend-screen opacity-80"></div>
           <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         </div>
 
@@ -139,13 +141,13 @@ const CloudServices = () => {
             </h1>
             
             <div className="teleprompter-container max-w-3xl mx-auto px-4">
-              <div className="teleprompter-content text-gray-300 text-lg md:text-xl leading-relaxed text-justify md:text-center font-light drop-shadow-md">
+              <div className="teleprompter-content text-gray-200 text-lg md:text-xl leading-relaxed text-justify md:text-center font-light drop-shadow-md">
                 <TextContent />
                 <TextContent />
               </div>
             </div>
             
-            <p className="text-gray-500 text-sm mt-4 italic animate-pulse">
+            <p className="text-white text-sm mt-4 italic animate-pulse">
               Hover over the text to pause
             </p>
           </motion.div>
