@@ -97,10 +97,10 @@ const AboutPage = () => {
           ========================================= */}
       <section className="relative h-[55vh] flex items-center justify-center overflow-hidden bg-[#113a71]">
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center opacity-20 mix-blend-overlay"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')" }}
+          className="absolute inset-0 w-full h-full bg-cover bg-center opacity-100 mix-blend-overlay"
+          style={{ backgroundImage: "url('https://i.pinimg.com/1200x/96/84/6b/96846b855d1b047b44be66b38868b56f.jpg')" }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#113a71] to-transparent opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#113a71] to-transparent opacity-0"></div>
 
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

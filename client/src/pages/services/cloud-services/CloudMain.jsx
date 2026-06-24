@@ -166,8 +166,9 @@ const CloudServices = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
-                Centralized and Proactive <br/>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-600 mb-6 leading-tight">
+                <span className='text-techGolden'>C</span>
+                entralized and Proactive <br/>
                 <span className="text-[#113a71]">Virtual Infrastructure Management</span>
               </h2>
               <div className="w-20 h-1 bg-techGolden mb-8 rounded-full"></div>

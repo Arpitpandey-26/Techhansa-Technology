@@ -32,6 +32,14 @@ const Migrating = () => {
           
           {/* Responsive Floating Background Elements */}
           <div className="absolute inset-0 z-0 perspective-1000 overflow-hidden">
+             {/* 1. Base Image - object-cover ensures it doesn't stretch */}
+          <img 
+            className="absolute inset-0 h-full w-full object-cover z-0" 
+            src="https://i.pinimg.com/1200x/d1/c6/65/d1c66585e282b02cfc8034cf3515455f.jpg" 
+            alt="Consulting Background" 
+          />
+
+            <div className="absolute inset-0 bg-[#113a71] bg-cover bg-center opacity-75"></div>
             <motion.div 
               animate={{ z: [0, 100, 0], opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -91,7 +99,8 @@ const Migrating = () => {
                 className="w-full"
               >
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#113a71] mb-6 leading-tight text-center md:text-left">
-                  Techhansa's managed cloud service
+                    <span className='text-techGolden'>T</span>
+                  echhansa's managed cloud service
                 </h2>
                 <div className="w-16 h-1.5 bg-[#D4A22E] mb-8 rounded-full mx-auto md:mx-0"></div>
                 
@@ -167,8 +176,8 @@ const Migrating = () => {
             
             {/* Title Section */}
             <div className="mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#113a71] mb-6">
-                Migration services
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#113a71] mb-6"> <span className='text-techGolden'>M</span>
+                igration services
               </h2>
               <div className="flex gap-2 mb-8">
                 <span className="w-2 h-2 rounded-full bg-[#D4A22E]"></span>

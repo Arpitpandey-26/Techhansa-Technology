@@ -20,46 +20,68 @@ const Consulting = () => {
       {/* =========================================
           1. 3D CINEMATIC HERO SECTION
           ========================================= */}
-      <section className="relative pt-40 pb-32 overflow-hidden bg-gray-950">
-        
-        {/* 3D Background Lighting & Orbs (Teal/Blue and Orange/Gold Contrast) */}
+     {/* =========================================
+          1. 3D CINEMATIC HERO SECTION (Themed Fix)
+          ========================================= */}
+      <section className="relative pt-40 pb-32 overflow-hidden">
+
+        {/* Background Layers */}
         <div className="absolute inset-0 z-0 overflow-hidden perspective-1000">
+          
+          {/* 1. Base Image - object-cover ensures it doesn't stretch */}
+          <img 
+            className="absolute inset-0 h-full w-full object-cover z-0" 
+            src="https://i.pinimg.com/1200x/30/c3/bc/30c3bcdf355691637c392a1400a4e58a.jpg" 
+            alt="Consulting Background" 
+          />
+          
+          {/* 2. THE BRAND OVERLAY (MAGIC FIX) 
+              This applies a rich Dark Blue tint over the image.
+              It fades from deep blue at the top to your light grey theme at the bottom. */}
+          <div className="absolute inset-0 bg-[#113a71] opacity-70 z-10 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#113a71]/80 via-[#113a71]/60 to-[#f8fafc] z-10"></div>
+
+          {/* 3. TechGolden Floating Orbs for Brand Contrast */}
           <motion.div 
             animate={{ rotate: 360, scale: [1, 1.1, 1] }} 
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-[#113a71]/40 rounded-full blur-[150px] mix-blend-screen"
+            className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-[#D4A22E]/40 rounded-full blur-[150px] z-20"
           />
           <motion.div 
             animate={{ rotate: -360, scale: [1, 1.2, 1] }} 
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[30%] -right-[10%] w-[50%] h-[70%] bg-[#C19326]/30 rounded-full blur-[130px] mix-blend-screen"
+            className="absolute top-[30%] -right-[10%] w-[50%] h-[70%] bg-[#C19326]/40 rounded-full blur-[130px] z-20"
           />
-          {/* Deep Grid for physical space illusion */}
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '50px 50px', transform: 'rotateX(60deg) scale(2)', transformOrigin: 'bottom' }}></div>
+          
+          {/* 4. 3D Space Grid */}
+          <div className="absolute inset-0 opacity-30 z-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px', transform: 'rotateX(60deg) scale(2)', transformOrigin: 'bottom' }}></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        {/* Content Container */}
+        <div className="relative z-30 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-extrabold text-white mb-10 tracking-tight drop-shadow-[0_10px_30px_rgba(212,162,46,0.3)]"
+            className="text-5xl md:text-7xl font-extrabold text-white mb-10 tracking-tight drop-shadow-[0_10px_30px_rgba(212,162,46,0.6)]"
           >
             Consulting
           </motion.h1>
 
-          {/* 3D Floating Glassmorphism Card for Hero Text */}
+          {/* 3D Floating Glassmorphism Card */}
           <motion.div 
             initial={{ opacity: 0, y: 40, rotateX: 20 }}
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-12 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] text-center relative overflow-hidden"
+            className="bg-[#113a71]/20 backdrop-blur-xl border border-white/30 p-8 md:p-12 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.3)] text-center relative overflow-hidden"
             style={{ transformPerspective: 1000 }}
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#C19326] to-transparent"></div>
+            {/* TechGolden Top Accent Line */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1.5 bg-gradient-to-r from-transparent via-[#D4A22E] to-transparent shadow-[0_0_15px_#D4A22E]"></div>
             
-            <p className="text-gray-200 text-lg md:text-xl leading-relaxed font-light drop-shadow-md">
+            {/* Text visibility improved with font-medium and pure white */}
+            <p className="text-white text-lg md:text-xl leading-relaxed font-medium drop-shadow-md">
               Many organizations start by dipping their toes into the cloud with small, new applications. In this scenario, since the application itself is fresh, the challenges of migration and fine-tuning are usually not a concern. The real complexities surface when the time comes to migrate an existing application to the cloud. This is when considerations shift towards the hypervisor, network configurations, databases, and other critical infrastructure components.
             </p>
           </motion.div>
@@ -122,8 +144,9 @@ const Consulting = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
-              Expertise Covers
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-600 mb-6 tracking-tight"> 
+                <span className='text-techGolden'>E</span>
+              xpertise Covers
             </h2>
             <div className="flex items-center gap-2 mb-8">
               <span className="w-2 h-2 rounded-full bg-[#C19326]"></span>

@@ -44,6 +44,16 @@ const Architecting = () => {
         
         {/* Soft Floating 3D Background Orbs (No dark colors) */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+       
+         {/* 1. Base Image - object-cover ensures it doesn't stretch */}
+          <img 
+            className="absolute inset-0 h-full w-full object-cover z-0" 
+            src="https://i.pinimg.com/736x/2b/6f/1b/2b6f1beb397b0fe4cececcc01ed1a1ff.jpg" 
+            alt="Consulting Background" 
+          />
+
+              <div className="absolute inset-0 bg-[#857676] bg-cover bg-center opacity-65"></div>
+
           <motion.div 
             animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }} 
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -66,16 +76,16 @@ const Architecting = () => {
           >
             {/* Title with Blue & Golden Theme */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#113a71] tracking-tight mb-8 drop-shadow-sm">
-              Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A22E] to-[#C19326]">Services</span>
+              Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A22E] to-[#d09d25]">Services</span>
             </h1>
             
             {/* 3D Glassmorphism Subtitle Card (Light Theme) */}
             <div className="bg-white/60 backdrop-blur-xl border border-white/50 p-8 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.04),inset_0_2px_10px_rgba(255,255,255,1)] relative">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 flex gap-2 -mt-1">
+              {/* <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex gap-2 -mt-1">
                  <span className="w-2 h-2 rounded-full bg-[#113a71]"></span>
                  <span className="w-8 h-2 rounded-full bg-[#D4A22E]"></span>
                  <span className="w-2 h-2 rounded-full bg-[#113a71]"></span>
-              </div>
+              </div> */}
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed font-medium">
                 While organizations have strategic plans to address their critical business challenges through cloud technology, their current physical architecture might not facilitate a straightforward transition to the cloud via a lift-and-shift approach.
               </p>
@@ -98,8 +108,8 @@ const Architecting = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-6 leading-tight">
-                TechHansa Methodology
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-6 leading-tight"> <span className='text-techGolden' >T</span>
+                echhansa Methodology
               </h2>
               
               <div className="space-y-6 text-gray-600 text-[17px] leading-relaxed text-justify">
@@ -160,8 +170,8 @@ const Architecting = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-6">
-              Cloud Architecture Deliverables
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-6"> <span className='text-techGolden' >C</span>
+              loud Architecture Deliverables
             </h2>
             <div className="flex justify-center gap-2 mb-6">
               <div className="w-3 h-3 bg-[#D4A22E] rounded-full"></div>

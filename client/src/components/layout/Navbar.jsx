@@ -121,7 +121,7 @@ const Navbar = () => {
 
               {/* Main Services Dropdown Container */}
               {isServicesOpen && (
-                <div className={`absolute left-0 w-64 bg-white shadow-xl border-t-2 border-techGolden animate-fade-in-down transition-all duration-300 ease-in-out ${isScrolled ? 'top-[70px]' : 'top-[100px]'}`}>
+                <div className={`absolute -left-14 w-60 bg-white shadow-xl border-t-2 border-techGolden animate-fade-in-down transition-all duration-300 ease-in-out ${isScrolled ? 'top-[70px]' : 'top-[100px]'}`}>
                   <div className="py-2">
                     {servicesData.map((service, index) => (
                       <div 
