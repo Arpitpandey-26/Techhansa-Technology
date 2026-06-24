@@ -12,6 +12,18 @@ import VisionTechnology from '../components/home/VisionTechnology';
 
 const HomePage = () => {
   
+  useEffect(()=>{
+    if ('scrollRestoration' in window.history){
+      window.history.scrollRestoration = 'manual';
+
+    }
+  window.scrollTo({top:0,
+    behavior: 'smooth'
+  });
+
+
+  },[]);
+
   /* =========================================
      VANILLA LENIS SETUP FOR REACT 19
      This avoids all hook collision errors while keeping the butter-smooth scroll.

@@ -170,21 +170,7 @@ const Consulting = () => {
             ))}
           </div>
 
-          {/* Footer Call to Action of the section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 bg-[#113a71] rounded-2xl p-8 md:p-10 shadow-[0_20px_40px_rgba(17,58,113,0.3)] flex flex-col md:flex-row items-center justify-between gap-6"
-          >
-            <p className="text-white text-xl md:text-2xl font-medium tracking-wide">
-              Feel free to reach out to us for guidance and support in these areas.
-            </p>
-            <button className="whitespace-nowrap px-8 py-4 bg-[#C19326] hover:bg-white hover:text-[#113a71] text-white font-bold rounded-full uppercase tracking-widest text-sm shadow-[0_10px_20px_rgba(193,147,38,0.4)] hover:shadow-[0_15px_30px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-300">
-              Contact Experts
-            </button>
-          </motion.div>
+         
 
         </div>
       </section>

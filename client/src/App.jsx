@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 /* =========================================
    COMPONENTS IMPORT
@@ -49,10 +49,20 @@ import Remote from './pages/services/ManagedServices/Remote';
 import Implementation from './pages/services/ProfessionalServices/Implementation';
 import Resourcing from './pages/services/ProfessionalServices/Resourcing';
 
+function ScrollToTopHelper() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  },[pathname]);
+  return null;
+}
+
 
 function App() {
   return (
     <Router>
+          <ScrollToTopHelper />
       <div className="flex flex-col min-h-screen">
         
         <Navbar />

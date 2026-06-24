@@ -2,18 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Migrating = () => {
-  // =========================================
-  // 1. 3D LOADER STATE
-  // =========================================
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time for the 3D effect to show
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
+ 
 
   // Data from screenshot
   const migrationServices = [
@@ -31,38 +20,8 @@ const Migrating = () => {
 
   return (
     <>
-      {/* =========================================
-          3D LOADING ANIMATION SCREEN
-          ========================================= */}
-      {isLoading && (
-        <motion.div 
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-[#0a1a33] flex flex-col items-center justify-center"
-        >
-          {/* 3D Spinning Cube CSS constructed with Framer Motion */}
-          <div className="perspective-1000 w-32 h-32 relative">
-            <motion.div 
-              animate={{ rotateX: [0, 360], rotateY: [0, 360] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="w-full h-full absolute transform-style-3d flex items-center justify-center"
-            >
-              <div className="absolute w-16 h-16 border-4 border-[#D4A22E] rounded-lg transform rotate-45 shadow-[0_0_20px_rgba(212,162,46,0.6)]"></div>
-              <div className="absolute w-16 h-16 border-4 border-[#113a71] rounded-lg transform rotate-12 shadow-[0_0_20px_rgba(17,58,113,0.6)]"></div>
-              <div className="absolute w-16 h-16 border-4 border-white/50 rounded-lg transform -rotate-12"></div>
-            </motion.div>
-          </div>
-          <motion.h2 
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="text-white mt-8 font-bold tracking-widest uppercase text-sm"
-          >
-            Initializing 3D Space...
-          </motion.h2>
-        </motion.div>
-      )}
 
+     
       {/* MAIN CONTENT WRAPPER */}
       <div className="font-sans text-gray-800 bg-[#f8fafc] selection:bg-[#D4A22E] selection:text-white overflow-x-hidden">
         
