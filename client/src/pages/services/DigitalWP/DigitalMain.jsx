@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-// Services Data with Original Glow Colors restored for the Light Theme
+// Services Data
 const services = [
   {
     id: "01",
@@ -9,7 +10,7 @@ const services = [
     icon: "☁️",
     description: "Office 365 is a productivity suite. Most companies stop after just migrating mail to the cloud. Our services are directed to getting you a higher ROI from your O365 investment by unlocking its full potential.",
     color: "#D4A22E",
-    glowColor: "rgba(212, 162, 46, 0.15)", // Adjusted opacity for white theme
+    glowColor: "rgba(212, 162, 46, 0.15)",
   },
   {
     id: "02",
@@ -49,7 +50,7 @@ const services = [
   },
 ];
 
-// Floating 3D Cube Component
+// Floating 3D Cube Component (Blurriness removed, made crisp)
 const FloatingCube = ({ style, size = 40, color = "#113a71" }) => (
   <div
     className="absolute pointer-events-none"
@@ -64,11 +65,10 @@ const FloatingCube = ({ style, size = 40, color = "#113a71" }) => (
     {["front", "back", "left", "right", "top", "bottom"].map((face) => (
       <div
         key={face}
-        className={`absolute w-full h-full border cube-${face}`}
+        className={`absolute w-full h-full border-2 cube-${face}`}
         style={{
           borderColor: color,
-          background: `${color}10`,
-          backdropFilter: "blur(2px)",
+          background: `${color}15`, // Crisp fill without blur
         }}
       />
     ))}
@@ -97,10 +97,6 @@ export default function DigitalMain() {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-15px); }
         }
-        @keyframes gridGlow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.6; }
-        }
         @keyframes scanLine {
           0% { top: -2px; opacity: 0; }
           10% { opacity: 1; }
@@ -117,10 +113,9 @@ export default function DigitalMain() {
 
         .hero-grid {
           background-image:
-            linear-gradient(rgba(17,58,113,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(17,58,113,0.05) 1px, transparent 1px);
+            linear-gradient(rgba(17,58,113,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(17,58,113,0.08) 1px, transparent 1px);
           background-size: 50px 50px;
-          animation: gridGlow 4s ease-in-out infinite;
         }
 
         .scan-effect::after {
@@ -133,7 +128,6 @@ export default function DigitalMain() {
           left: 0;
         }
 
-        /* ORIGINAL CARD 3D HOVER PROPERTY RESTORED */
         .card-3d {
           transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           transform-style: preserve-3d;
@@ -151,13 +145,13 @@ export default function DigitalMain() {
         }
       `}</style>
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white hero-grid scan-effect border-b border-gray-100">
+      {/* ================= HERO SECTION (Size Reduced & Crisp) ================= */}
+      <section className="relative flex items-center pt-32 pb-16 lg:pt-16 lg:pb-20 overflow-hidden bg-white hero-grid scan-effect border-b border-gray-100">
         
-        <FloatingCube style={{ top: "15%", right: "10%", "--size": "25px" }} size={50} color="#D4A22E" />
-        <FloatingCube style={{ top: "65%", right: "20%", "--size": "15px", animationDelay: "2s" }} size={30} color="#113a71" />
-        <FloatingCube style={{ top: "25%", left: "5%", "--size": "12px", animationDelay: "4s" }} size={25} color="#D4A22E" />
-        <FloatingCube style={{ bottom: "15%", left: "10%", "--size": "20px", animationDelay: "1s" }} size={40} color="#113a71" />
+        <FloatingCube style={{ top: "7%", right: "10%", "--size": "25px" }} size={50} color="#D4A22E" />
+        <FloatingCube style={{ top: "45%", right: "20%", "--size": "15px", animationDelay: "2s" }} size={30} color="#113a71" />
+        <FloatingCube style={{ top: "35%", left: "5%", "--size": "12px", animationDelay: "4s" }} size={25} color="#D4A22E" />
+        <FloatingCube style={{ bottom: "20%", left: "50%", "--size": "20px", animationDelay: "1s" }} size={40} color="#113a71" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col lg:flex-row items-center gap-16">
           
@@ -180,19 +174,9 @@ export default function DigitalMain() {
               <button className="bg-gradient-to-r from-[#D4A22E] to-[#C19326] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-[0_10px_20px_rgba(212,162,46,0.3)] hover:-translate-y-1 transition-all duration-300">
                 Explore Solutions
               </button>
-              <button className="bg-white text-[#113a71] border border-[#113a71] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#f4f7f9] hover:-translate-y-1 transition-all duration-300">
-                Watch Demo
-              </button>
+             
             </div>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12 mt-12 pt-12 border-t border-gray-100">
-              {[["10x", "ROI Increase"], ["99.9%", "Uptime SLA"], ["500+", "Enterprises"]].map(([num, label]) => (
-                <div key={label} className="border-l-4 border-[#D4A22E] pl-4 text-left">
-                  <div className="text-3xl md:text-4xl font-black text-[#113a71]">{num}</div>
-                  <div className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-wider mt-1">{label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="w-full lg:w-[450px] shrink-0 perspective-1000" style={{ animation: "heroFloat 6s ease-in-out infinite" }}>
@@ -205,8 +189,8 @@ export default function DigitalMain() {
 
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 mb-4">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]" />
-                  <span className="text-gray-500 text-xs font-bold tracking-widest uppercase">Live Dashboard</span>
+
+                 
                 </div>
                 <div className="text-5xl mb-4">💼</div>
                 <div className="text-[#113a71] font-black text-2xl">Digital Workplace</div>
@@ -214,14 +198,26 @@ export default function DigitalMain() {
               </div>
 
               <div className="space-y-4">
-                {[["Cloud Migration", 92], ["User Adoption", 87], ["Security Score", 98], ["Performance", 94]].map(([label, val]) => (
+                {[
+                  ["Cloud Migration", 92], 
+                  ["User Adoption", 87], 
+                  ["Security Score", 98], 
+                  ["Performance", 94]
+                ].map(([label, val], index) => (
                   <div key={label}>
                     <div className="flex justify-between text-xs font-bold mb-1.5">
                       <span className="text-gray-600">{label}</span>
                       <span className="text-[#113a71]">{val}%</span>
                     </div>
-                    <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-[#113a71] to-[#D4A22E] rounded-full" style={{ width: `${val}%` }} />
+                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                      {/* MAGIC: ANIMATED PROGRESS BARS */}
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${val}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: 0.2 + (index * 0.2), ease: "easeOut" }}
+                        className="h-full bg-gradient-to-r from-[#113a71] to-[#D4A22E] rounded-full shadow-[0_0_8px_rgba(212,162,46,0.5)]"
+                      />
                     </div>
                   </div>
                 ))}
@@ -275,7 +271,7 @@ export default function DigitalMain() {
         </div>
       </section>
 
-      {/* ================= ORIGINAL 3D CARDS SECTION ================= */}
+      {/* ================= 3D CARDS SECTION ================= */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -314,7 +310,6 @@ export default function DigitalMain() {
                   animationDelay: `${i * 0.1}s`,
                 }}
               >
-                {/* 1. Original Inner Glow */}
                 <div
                   className="card-inner-glow"
                   style={{
@@ -328,7 +323,6 @@ export default function DigitalMain() {
                   }}
                 />
 
-                {/* 2. Original ID Text */}
                 <div style={{
                   position: "absolute",
                   top: 20, right: 20,
@@ -342,8 +336,6 @@ export default function DigitalMain() {
                 </div>
 
                 <div style={{ position: "relative", zIndex: 2 }}>
-                  
-                  {/* 3. Original 3D Pop-out Icon */}
                   <div
                     style={{
                       width: 64, height: 64,
@@ -393,7 +385,6 @@ export default function DigitalMain() {
                   </button>
                 </div>
 
-                {/* 4. Original Shimmer Line */}
                 <div
                   style={{
                     position: "absolute", bottom: 0, left: 0, right: 0, height: 3,
@@ -412,10 +403,7 @@ export default function DigitalMain() {
       <section className="py-24 bg-[#f4f7f9] border-t border-gray-200 relative overflow-hidden text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 mb-8 shadow-sm">
-            <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-[#113a71] text-sm font-bold tracking-widest uppercase">Ready to Transform?</span>
-          </div>
+        
 
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#113a71] leading-tight mb-6">
             Start Your <span className="text-[#D4A22E]">Digital Journey</span> Today
@@ -429,9 +417,7 @@ export default function DigitalMain() {
             <button className="bg-[#113a71] text-white px-10 py-4 rounded-xl font-bold text-lg shadow-[0_10px_20px_rgba(17,58,113,0.3)] hover:-translate-y-1 transition-all duration-300">
               Get Started Today
             </button>
-            <button className="bg-white text-[#113a71] border border-gray-300 px-10 py-4 rounded-xl font-bold text-lg shadow-sm hover:border-[#113a71] hover:-translate-y-1 transition-all duration-300">
-              Contact Us
-            </button>
+           
           </div>
 
         </div>

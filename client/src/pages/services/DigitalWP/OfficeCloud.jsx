@@ -166,7 +166,7 @@ export default function OfficeCloud() {
             <p className="hero-p">Office 365 is a comprehensive productivity suite. Many companies limit usage to simply migrating email to the cloud. Our services unlock the full potential of your O365 investment, delivering a higher return.</p>
             <div className="hero-btns">
               <button className="btn-gold">Get Started ›</button>
-              <button className="btn-ghost">View Services</button>
+             
             </div>
           </div>
           
@@ -471,8 +471,8 @@ export default function OfficeCloud() {
           <h2 className="cta-h">Ready to unlock your Office 365 potential?</h2>
           <p className="cta-p">Join 500+ enterprises who trust TechHansa for seamless O365 deployment, migration, and management.</p>
           <div className="cta-btns">
-            <button className="btn-dark">Schedule a Consultation</button>
-            <button className="btn-wh">Download Brochure</button>
+            <button className="btn-wh">Schedule a Consultation</button>
+           
           </div>
         </div>
       </div>
