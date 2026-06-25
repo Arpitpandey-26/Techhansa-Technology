@@ -27,6 +27,7 @@ import CloudManaged from './pages/services/cloud-services/CloudManaged';
 import Monitoring from './pages/services/cloud-services/Monitoring';
 
 // 2. Digital Workplace
+import DigitalMain from './pages/services/DigitalWP/DigitalMain';
 import DesktopVirtualization from './pages/services/DigitalWP/DesktopVirtualization';
 import EndpointSecurity from './pages/services/DigitalWP/EndpointSecurity';
 import Enterprise from './pages/services/DigitalWP/Enterprise';
@@ -82,6 +83,8 @@ function App() {
             <Route path="/services/cloud-services/monitoring-and-help-desk" element={<Monitoring />} />
 
             {/* --- DIGITAL WORKPLACE ROUTES --- */}
+           {/* --- DIGITAL WORKPLACE ROUTES --- */}
+            <Route path="/services/digital-workplace" element={<DigitalMain />} />
             <Route path="/services/digital-workplace/office-365" element={<OfficeCloud />} />
             <Route path="/services/digital-workplace/desktop-virtualization" element={<DesktopVirtualization />} />
             <Route path="/services/digital-workplace/endpoint-security" element={<EndpointSecurity />} />
