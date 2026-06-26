@@ -35,6 +35,7 @@ import OfficeCloud from './pages/services/DigitalWP/OfficeCloud';
 import UserExperience from './pages/services/DigitalWP/UserExperience';
 
 // 3. Automation
+import AutomationMain from './pages/services/Automation/AutomationMain';
 import Devops from './pages/services/Automation/Devops';
 import ITprocess from './pages/services/Automation/ITprocess';
 import ITservice from './pages/services/Automation/ITservice';
@@ -92,6 +93,7 @@ function App() {
             <Route path="/services/digital-workplace/enterprise-app-store" element={<Enterprise />} />
 
             {/* --- AUTOMATION ROUTES --- */}
+             <Route path="/services/automation" element={<AutomationMain />} />
             <Route path="/services/automation/it-service-management" element={<ITservice />} />
             <Route path="/services/automation/devops" element={<Devops />} />
             <Route path="/services/automation/it-process-automation" element={<ITprocess />} />
