@@ -30,7 +30,7 @@ const PAGE_CONTENT = {
   stats: [
     { value: "1-Click", label: "App Installation" },
     { value: "100%", label: "Automated Approval" },
-    { value: "Zero", label: "Manual Deployment" },
+    { value: "?", label: "Manual Deployment" },
     { value: "24/7", label: "Self-Service Access" },
   ],
 
@@ -450,12 +450,7 @@ function AdvantagesSection({ content }) {
                   <div className="font-black text-gray-900 text-base">Enterprise App Store</div>
                   <div className="text-xs text-gray-400 mt-0.5">128 apps available</div>
                 </div>
-                <div
-                  className="ml-auto px-3 py-1 rounded-full text-xs font-bold"
-                  style={{ background: "rgba(34,197,94,.1)", color: "#16a34a", border: "1px solid rgba(34,197,94,.2)" }}
-                >
-                  ● Live
-                </div>
+                
               </div>
 
               {/* Search bar mockup */}
@@ -738,13 +733,7 @@ function AppGridSection({ content }) {
                     {app.category}
                   </div>
 
-                  {/* Install pill on hover */}
-                  <div
-                    className="mt-3 text-xs font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 px-3 py-1 rounded-full"
-                    style={{ background: `linear-gradient(135deg, ${THEME.gold}, ${THEME.goldLight})`, color: THEME.dark }}
-                  >
-                    Install →
-                  </div>
+                 
                 </div>
               </TiltCard>
             );

@@ -184,10 +184,7 @@ export default function AutomationMain() {
                   className="w-full h-56 md:h-64 object-cover rounded-xl"
                 />
                 
-                <div className="absolute top-6 right-6 bg-[#113a71]/95 backdrop-blur-md text-white px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2.5 shadow-md animate-[float-badge_4s_ease-in-out_infinite]">
-                  <span className="w-2 h-2 rounded-full bg-[#D4A22E] animate-ping"></span>
-                  <span className="text-[10px] font-bold tracking-widest uppercase">Engine Active</span>
-                </div>
+              
               </div>
             </motion.div>
 
@@ -204,8 +201,8 @@ export default function AutomationMain() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-3">
-              Automation Services
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-3"> <span className='text-techGolden'>A</span>
+              utomation Services
             </h2>
             <div className="flex justify-center gap-1 mb-6">
                <span className="w-2 h-1 bg-[#D4A22E] rounded-full"></span>

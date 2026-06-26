@@ -2,7 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const pageStyles = `
-  /* 3D Core Animations */
+  /* ==========================================================================
+     1. HARDWARE ACCELERATED ULTRA-SMOOTH ANIMATIONS
+     ========================================================================== */
+  @keyframes spin-gear {
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes spin-gear-reverse {
+    100% { transform: rotate(-360deg); }
+  }
+  @keyframes float-badge {
+    0%, 100% { transform: translateY(0) translateZ(30px); }
+    50% { transform: translateY(-8px) translateZ(45px); }
+  }
   @keyframes float-soft {
     0%, 100% { transform: translateY(0) translateZ(0); }
     50% { transform: translateY(-15px) translateZ(30px); }
@@ -11,6 +23,8 @@ const pageStyles = `
     0%, 100% { transform: translateY(0) rotateX(10deg) rotateY(-10deg); }
     50% { transform: translateY(-20px) rotateX(15deg) rotateY(-5deg); }
   }
+  
+  /* 3D True Isometric Orbital Ring Mechanics */
   @keyframes orbit-spin {
     0% { transform: rotateX(60deg) rotateZ(0deg); }
     100% { transform: rotateX(60deg) rotateZ(360deg); }
@@ -20,7 +34,63 @@ const pageStyles = `
     100% { transform: rotateZ(-360deg) rotateX(-60deg); }
   }
 
-  /* Glass & 3D Panel Styles */
+  /* ==========================================================================
+     2. CONTAINERS & LAYOUT BASIS
+     ========================================================================== */
+  .perspective-container {
+    perspective: 1400px;
+    transform-style: preserve-3d;
+  }
+
+  .gear-icon {
+    position: absolute;
+    color: #D4A22E;
+    opacity: 0.08;
+    will-change: transform;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .gear-1 {
+    width: 200px; height: 200px;
+    top: -20px; right: -40px;
+    animation: spin-gear 25s linear infinite;
+  }
+  .gear-2 {
+    width: 120px; height: 120px;
+    bottom: 40px; left: -30px;
+    animation: spin-gear-reverse 18s linear infinite;
+  }
+
+  /* ==========================================================================
+     3. SERVICE CARDS & PREMIUM GLASSMORPHISM
+     ========================================================================== */
+  /* Premium 3D Service Card Engine */
+  .service-card-3d {
+    background: #ffffff;
+    border: 1px solid rgba(17, 58, 113, 0.06);
+    box-shadow: 
+      0 10px 30px -10px rgba(17, 58, 113, 0.05),
+      0 1px 3px rgba(0, 0, 0, 0.02);
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .service-card-3d:hover {
+    transform: translateY(-8px) rotateX(4deg) rotateY(-3deg);
+    border-color: rgba(212, 162, 46, 0.35);
+    box-shadow: 
+      0 30px 60px -15px rgba(17, 58, 113, 0.12),
+      0 0 50px -10px rgba(212, 162, 46, 0.1),
+      -6px 6px 0px rgba(212, 162, 46, 0.15);
+  }
+  .service-card-3d:hover .icon-wrapper {
+    transform: translateZ(40px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(17, 58, 113, 0.2);
+  }
+  .service-card-3d:hover .card-title { transform: translateZ(25px); }
+  .service-card-3d:hover .card-body { transform: translateZ(15px); }
+
+  /* Glass 3D Card Base Configuration */
   .glass-3d-card {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(16px);
@@ -39,6 +109,9 @@ const pageStyles = `
     border-color: rgba(212,162,46,0.4);
   }
 
+  /* ==========================================================================
+     4. COMPONENT SHOWCASES, PIPELINES & HOVER BLADES
+     ========================================================================== */
   /* Isometric Image Showcase */
   .iso-showcase {
     perspective: 1500px;
@@ -69,16 +142,16 @@ const pageStyles = `
   }
   .pipeline-step:hover p { color: rgba(255,255,255,0.8); }
 
-  /* 3D Server Blade Hover */
+  /* 3D System Server Blade Interactive List Item Layer */
   .blade-hover {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform-style: preserve-3d;
   }
   .blade-hover:hover {
-    transform: translateX(15px) translateZ(20px);
+    transform: translateX(12px) translateZ(15px);
     background: #f4f7f9;
     border-left-color: #D4A22E;
-    box-shadow: 5px 10px 20px rgba(17,58,113,0.1);
+    box-shadow: 0 10px 20px rgba(17, 58, 113, 0.06);
   }
 `;
 
@@ -147,12 +220,9 @@ export default function ITservice() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center perspective-[1000px]">
             
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <div className="inline-flex items-center gap-2 bg-[#113a71]/5 border border-[#113a71]/10 rounded-full px-5 py-2 mb-6">
-                <div className="w-2.5 h-2.5 bg-[#113a71] rounded-full animate-pulse"></div>
-                <span className="text-[#113a71] text-sm font-bold tracking-widest uppercase">Integration</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-6">
-                Versatile Framework
+             
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-6"> <span className='text-techGolden'>V</span>
+                ersatile Framework
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 We have established a versatile framework that allows the seamless integration of various discrete tools within the organization. This integration facilitates robust root cause analysis and advanced analytics.
@@ -213,7 +283,7 @@ export default function ITservice() {
             {/* Right: Asset Management Content */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <div className="w-16 h-1.5 bg-[#D4A22E] mb-6 rounded-full"></div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-[#113a71] mb-6">Asset Management</h2>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-[#113a71] mb-6"><span className='text-techGolden'>A</span>sset Management</h2>
               <p className="text-gray-600 text-[17px] leading-relaxed mb-6">
                 Utilizing the ITSM framework, we've developed a comprehensive Asset Management Solution that effectively manages the entire lifecycle of assets, spanning from the point of purchase to their current location and eventual retirement.
               </p>
@@ -257,79 +327,113 @@ export default function ITservice() {
         </div>
       </section>
 
-      {/* =========================================
+     {/* =========================================
           4. ENTERPRISE ITSM (ServiceNow 3D Orbital Ring)
           ========================================= */}
-      <section className="py-24 md:py-32 bg-[#f4f7f9] border-t border-gray-200 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-20 bg-[#f4f7f9] border-t border-gray-200 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left: Content & 3D Hover Blades */}
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <div className="w-16 h-1.5 bg-[#113a71] mb-6 rounded-full"></div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-[#113a71] mb-6 leading-tight">
+            {/* Left Column: Content & 3D Interactive Hover Blades (7 Columns) */}
+            <motion.div 
+              className="w-full lg:col-span-7"
+              variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            >
+              <div className="w-12 h-1 bg-[#113a71] mb-5 rounded-full"></div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#113a71] mb-5 leading-tight tracking-tight">
                 Enterprise IT Service Management – <span className="text-[#D4A22E]">ServiceNow</span>
               </h2>
-              <p className="text-gray-600 text-[16px] leading-relaxed mb-8">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                 ITSM software users now have heightened expectations for increased capabilities, user-friendliness, and adaptability. ServiceNow stands out as a product turning these expectations into reality. By harnessing the ServiceNow platform, we've assisted organizations in automating service desk operations, HR functions, and procurement.
               </p>
               
-              <div className="glass-3d-card p-6 rounded-2xl mb-6">
-                <p className="font-bold text-[#113a71]">We help customers with building systems for:</p>
+              <div className="bg-white/60 backdrop-blur-sm border border-gray-200/60 p-4 rounded-xl mb-4 shadow-sm">
+                <p className="font-bold text-sm md:text-base text-[#113a71]">We help customers with building systems for:</p>
               </div>
 
-              <div className="space-y-3 pl-2">
+              <div className="space-y-2.5 pl-1 perspective-container">
                 {[
                   "Employee self service portal",
                   "CMDB Integration and Reconciliation",
                   "Problem, Change, Incident & Knowledge Management",
                   "Architecture, Consultancy, and Integration Services"
                 ].map((item, idx) => (
-                  <div key={idx} className="blade-hover bg-white border border-gray-200 border-l-4 border-l-transparent p-4 rounded-xl flex items-center gap-4 cursor-default">
-                    <div className="w-6 h-6 rounded-full bg-[#113a71]/10 flex items-center justify-center shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-[#113a71]"></div>
+                  <div key={idx} className="blade-hover bg-white border border-gray-200/80 border-l-4 border-l-transparent p-3.5 rounded-xl flex items-center gap-3.5 cursor-default shadow-[0_2px_4px_rgba(0,0,0,0.01)] transform-gpu">
+                    <div className="w-5 h-5 rounded-full bg-[#113a71]/10 flex items-center justify-center shrink-0">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#113a71]"></div>
                     </div>
-                    <span className="text-gray-700 font-medium text-sm">{item}</span>
+                    <span className="text-gray-700 font-semibold text-xs md:text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Right: 3D Orbital Ring Diagram */}
-            <div className="flex justify-center items-center h-[500px] perspective-[1000px] relative">
-              {/* Background Glow */}
-              <div className="absolute w-[300px] h-[300px] bg-[#D4A22E]/10 rounded-full blur-[60px]"></div>
+            {/* Right Column: Clean Ultra-Legible 3D Orbital Ring Diagram (5 Columns) */}
+            <div className="w-full lg:col-span-5 flex justify-center items-center h-[460px] perspective-container relative mt-8 lg:mt-0">
+              
+              {/* Background Contrast Ambient Glow */}
+              <div className="absolute w-[260px] h-[260px] bg-[#113a71]/5 rounded-full blur-[40px]"></div>
+              <div className="absolute w-[180px] h-[180px] bg-[#D4A22E]/5 rounded-full blur-[50px] delay-75"></div>
 
-              {/* Orbital Ring Container */}
-              <div className="relative w-[350px] h-[350px]" style={{ transformStyle: 'preserve-3d', animation: 'orbit-spin 25s linear infinite' }}>
+              {/* Enhanced Scale Orbital System Container */}
+              <div 
+                className="relative w-[380px] h-[380px] flex items-center justify-center rounded-full" 
+                style={{ transformStyle: 'preserve-3d', animation: 'orbit-spin 30s linear infinite' }}
+              >
                 
-                {/* Center Core */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white rounded-full shadow-[0_20px_40px_rgba(17,58,113,0.3)] border-4 border-[#113a71] flex flex-col items-center justify-center z-20" style={{ animation: 'counter-spin 25s linear infinite' }}>
-                  <span className="text-3xl font-black text-[#113a71]">ITSM</span>
-                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">Core</span>
+                {/* Structural Vector Rings (Sized Up and Scaled) */}
+                <div className="absolute inset-0 rounded-full border border-dashed border-[#113a71]/20"></div>
+                <div className="absolute inset-6 rounded-full border-2 border-solid border-[#113a71]/5"></div>
+                <div className="absolute inset-12 rounded-full border border-dashed border-[#D4A22E]/30"></div>
+
+                {/* Highly Visible Stabilized Center Core Platform */}
+                <div 
+                  className="absolute w-28 h-28 bg-white rounded-full shadow-[0_15px_35px_rgba(17,58,113,0.18)] border-4 border-[#113a71] flex flex-col items-center justify-center z-20 transform-gpu" 
+                  style={{ animation: 'counter-spin 30s linear infinite' }}
+                >
+                  <span className="text-2xl font-black text-[#113a71] tracking-tight">ITSM</span>
+                  <span className="text-[9px] bg-[#f4f7f9] text-gray-500 px-2 py-0.5 rounded-md font-bold uppercase tracking-wider mt-1 border border-gray-200">Core</span>
                 </div>
 
-                {/* The Rings */}
-                <div className="absolute inset-0 rounded-full border-[3px] border-dashed border-[#113a71]/30"></div>
-                <div className="absolute inset-4 rounded-full border-2 border-solid border-[#D4A22E]/40"></div>
-
-                {/* Orbiting Nodes (Categories from screenshot) */}
+                {/* Sized-up High-Legibility Ring Nodes */}
                 {[
-                  { label: "Service Catalog", color: "#113a71", deg: 0 },
-                  { label: "Incident Mgmt", color: "#D4A22E", deg: 60 },
-                  { label: "Problem Mgmt", color: "#113a71", deg: 120 },
-                  { label: "Change Mgmt", color: "#113a71", deg: 180 },
-                  { label: "Asset Mgmt", color: "#D4A22E", deg: 240 },
-                  { label: "Knowledge Base", color: "#113a71", deg: 300 },
+                  { label: "Service Catalog", accent: "#113a71", isDark: true, deg: 0 },
+                  { label: "Incident Mgmt", accent: "#D4A22E", isDark: false, deg: 60 },
+                  { label: "Problem Mgmt", accent: "#113a71", isDark: true, deg: 120 },
+                  { label: "Change Mgmt", accent: "#113a71", isDark: true, deg: 180 },
+                  { label: "Asset Mgmt", accent: "#D4A22E", isDark: false, deg: 240 },
+                  { label: "Knowledge Base", accent: "#113a71", isDark: true, deg: 300 },
                 ].map((node, i) => (
                   <div 
                     key={i} 
-                    className="absolute top-0 left-1/2 -translate-x-1/2 -mt-6"
-                    style={{ transformOrigin: '50% 199px', transform: `rotateZ(${node.deg}deg)` }}
+                    className="absolute top-0 left-1/2 -translate-x-1/2 -mt-7"
+                    style={{ 
+                      transformOrigin: '50% 217px', 
+                      transform: `rotateZ(${node.deg}deg)`,
+                      transformStyle: 'preserve-3d' 
+                    }}
                   >
-                    <div className="w-24 h-12 bg-white rounded-xl shadow-lg border border-gray-200 flex items-center justify-center p-2 text-center" style={{ animation: 'counter-spin 25s linear infinite' }}>
-                      <span className="text-[11px] font-bold leading-tight" style={{ color: node.color }}>{node.label}</span>
+                    {/* Outer Node Box with counter-rotation logic */}
+                    <div 
+                      className="w-28 h-14 bg-white rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.06)] border border-gray-200/80 flex flex-col items-center justify-center p-2 text-center transform-gpu hover:scale-105 transition-transform duration-200" 
+                      style={{ 
+                        animation: 'counter-spin 30s linear infinite',
+                        borderTop: `3px solid ${node.accent}`
+                      }}
+                    >
+                      <span className="text-[11px] font-extrabold text-gray-800 leading-tight tracking-tight mb-0.5">
+                        {node.label}
+                      </span>
+                      <span 
+                        className="text-[8px] font-bold uppercase tracking-wide px-1.5 py-0.2 rounded"
+                        style={{ 
+                          backgroundColor: node.isDark ? 'rgba(17,58,113,0.06)' : 'rgba(212,162,46,0.1)', 
+                          color: node.accent 
+                        }}
+                      >
+                        Module
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -340,7 +444,6 @@ export default function ITservice() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
