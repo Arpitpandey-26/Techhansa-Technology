@@ -405,7 +405,7 @@ function ServerSection() {
 
               {/* Floating annotation */}
               <div className="absolute -bottom-5 -right-5 glass rounded-2xl px-5 py-3 shadow-xl hidden sm:block"
-                style={{ animation: "floatY 6s ease-in-out infinite 0.5s" }}>
+             >
                 <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400">OS Platforms</p>
                 <div className="flex gap-2 mt-2 text-xs font-bold text-[#113a71]">
                   {["AIX", "Linux", "Win", "Sol"].map((o) => (

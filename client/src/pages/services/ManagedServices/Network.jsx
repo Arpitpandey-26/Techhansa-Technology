@@ -13,7 +13,7 @@ import {
 function GlobalStyles() {
   return (
     <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+     
 
       /* ── animations ── */
       @keyframes packetFlow {
@@ -351,14 +351,14 @@ function Hero() {
   );
 }
 
-/* ═══════════════════════════════════════════════
-   SECTION WRAPPER — diagonal overlap for depth
-═══════════════════════════════════════════════ */
+/* Updated Code (Ye fix apply karo) */
 function SectionWrap({ children, dark = false, id }) {
   return (
-    <section id={id} className={`relative py-24 px-4 z-10 border-t border-gray-100`}
+    <section id={id} className={`relative py-16 md:py-24 px-4 w-full overflow-hidden z-10 border-t border-gray-100`}
       style={{ background: dark ? "#f8fafc" : "#ffffff" }}>
-      {children}
+      <div className="max-w-7xl mx-auto">
+        {children}
+      </div>
     </section>
   );
 }

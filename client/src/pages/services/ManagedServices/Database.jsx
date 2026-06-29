@@ -28,7 +28,7 @@ import {
 ───────────────────────────────────────────── */
 const GlobalStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+ 
 
     @keyframes floatY    { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-18px)} }
     @keyframes floatYR   { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-14px) rotate(10deg)} }
