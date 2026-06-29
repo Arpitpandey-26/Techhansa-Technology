@@ -294,12 +294,7 @@ function Hero() {
                   onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
                   Explore Services <ArrowRight size={15} />
                 </button>
-                <button className="flex items-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-sm"
-                  style={{ background: "rgba(17,58,113,.05)", color: "#113a71", border: "1px solid rgba(17,58,113,.1)", transition: "all .3s" }}
-                  onMouseEnter={e => e.currentTarget.style.background = "rgba(17,58,113,.08)"}
-                  onMouseLeave={e => e.currentTarget.style.background = "rgba(17,58,113,.05)"}>
-                  Contact NOC <ArrowRight size={15} />
-                </button>
+               
               </div>
 
               {/* Stats row — horizontal ticker unique to this page */}
@@ -649,25 +644,7 @@ function ServiceDeskSection() {
           ))}
         </div>
 
-        {/* ITIL V3 callout banner */}
-        <div className={`mt-10 rounded-3xl px-8 py-8 flex flex-col sm:flex-row items-center gap-6 shadow-sm border border-[#D4A22E]/30 bg-gradient-to-r from-[#D4A22E]/10 to-white ${vis ? "afu d7" : "opacity-0"}`}>
-          <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
-            style={{ background: "linear-gradient(135deg,#113a71,#0a192f)", boxShadow: "0 10px 20px rgba(17,58,113,.2)" }}>
-            <BookOpen size={28} className="text-[#D4A22E]" />
-          </div>
-          <div>
-            <p className="font-extrabold text-[#113a71] text-lg">Built on ITIL V3</p>
-            <p className="text-sm text-gray-600 font-medium mt-1 leading-relaxed">
-              Our solution includes built-in workflows for Incident, Change, and Problem management
-              based on ITIL V3 — all fully customizable to suit your specific operational needs.
-            </p>
-          </div>
-          <div className="shrink-0 ml-auto">
-            <span className="flex items-center gap-2 text-sm font-extrabold" style={{ color: "#D4A22E" }}>
-              Customizable <ArrowRight size={16} />
-            </span>
-          </div>
-        </div>
+    
       </div>
     </SectionWrap>
   );
@@ -778,12 +755,7 @@ function CtaSection() {
               onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(17,58,113,.25)"; }}>
               Schedule a Consultation <ArrowRight size={18} />
             </button>
-            <button className="flex items-center gap-2 px-9 py-4 rounded-2xl font-extrabold text-base border border-gray-300"
-              style={{ background: "#ffffff", color: "#113a71", boxShadow: "0 4px 10px rgba(0,0,0,0.05)", transition: "all .3s" }}
-              onMouseEnter={e => e.currentTarget.style.background = "#f8fafc"}
-              onMouseLeave={e => e.currentTarget.style.background = "#ffffff"}>
-              View All Services <ArrowRight size={18} />
-            </button>
+            
           </div>
         </div>
       </div>
