@@ -49,6 +49,7 @@ import Network from './pages/services/ManagedServices/Network';
 import Remote from './pages/services/ManagedServices/Remote';
 
 // 5. Professional Services
+import ProfessionalMain from './pages/services/ProfessionalServices/ProfessionalMain';
 import Implementation from './pages/services/ProfessionalServices/Implementation';
 import Resourcing from './pages/services/ProfessionalServices/Resourcing';
 
@@ -108,6 +109,7 @@ function App() {
             <Route path="/services/managed-services/remote-infrastructure" element={<Remote />} />
 
             {/* --- PROFESSIONAL SERVICES ROUTES --- */}
+             <Route path="/services/professional-services" element={<ProfessionalMain />} />
             <Route path="/services/professional-services/implementation-services" element={<Implementation />} />
             <Route path="/services/professional-services/resourcing" element={<Resourcing />} />
 
