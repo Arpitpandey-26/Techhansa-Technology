@@ -41,6 +41,7 @@ import ITprocess from './pages/services/Automation/ITprocess';
 import ITservice from './pages/services/Automation/ITservice';
 
 // 4. Managed Services
+import ManagedMain from './pages/services/ManagedServices/ManagedMain';
 import Application from './pages/services/ManagedServices/Application';
 import Database from './pages/services/ManagedServices/Database';
 import DataCenter from './pages/services/ManagedServices/DataCenter';
@@ -83,7 +84,7 @@ function App() {
             <Route path="/services/cloud-services/cloud-managed-services" element={<CloudManaged />} />
             <Route path="/services/cloud-services/monitoring-and-help-desk" element={<Monitoring />} />
 
-            {/* --- DIGITAL WORKPLACE ROUTES --- */}
+            
            {/* --- DIGITAL WORKPLACE ROUTES --- */}
             <Route path="/services/digital-workplace" element={<DigitalMain />} />
             <Route path="/services/digital-workplace/office-365" element={<OfficeCloud />} />
@@ -99,6 +100,7 @@ function App() {
             <Route path="/services/automation/it-process-automation" element={<ITprocess />} />
 
             {/* --- MANAGED SERVICES ROUTES --- */}
+              <Route path="/services/managed-services" element={<ManagedMain />} />
             <Route path="/services/managed-services/data-center-services" element={<DataCenter />} />
             <Route path="/services/managed-services/database-management" element={<Database />} />
             <Route path="/services/managed-services/network-management" element={<Network />} />

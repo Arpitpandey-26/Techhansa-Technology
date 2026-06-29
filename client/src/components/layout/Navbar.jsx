@@ -91,24 +91,26 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white shadow-sm border-b border-gray-100'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 ease-in-out relative ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white shadow-sm border-b border-gray-100'}`}>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className={`flex justify-between items-center transition-all duration-300 ease-in-out ${isScrolled ? 'h-[70px]' : 'h-[100px]'}`}>
+        <div className={`w-full flex justify-between items-center transition-all duration-300 ease-in-out ${isScrolled ? 'h-[70px]' : 'h-[100px]'}`}>
           
           {/* =========================================
               LOGO AND BRAND NAME SECTION
               ========================================= */}
-          <div className="flex-shrink-0 flex items-center cursor-pointer">
-            <div className={`rounded-full flex items-center justify-center mr-3 md:mr-4 shadow-sm overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? 'w-[40px] h-[40px] md:w-[50px] md:h-[50px]' : 'w-[60px] h-[60px] md:w-[88px] md:h-[88px]'}`}>
+          {/* Fixed: Added flex-1 and min-w-0 to allow proper shrinking/truncating */}
+          <div className="flex-1 flex items-center cursor-pointer min-w-0">
+            <div className={`shrink-0 rounded-full flex items-center justify-center mr-2 md:mr-4 shadow-sm overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? 'w-[36px] h-[36px] md:w-[50px] md:h-[50px]' : 'w-[45px] h-[45px] md:w-[88px] md:h-[88px]'}`}>
               <img 
                 src="/src/assets/logo.png" 
                 alt="Company Logo" 
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <span className={`font-bold text-[#D4A22E] tracking-tight leading-none transition-all duration-300 ease-in-out ${isScrolled ? 'text-[18px] md:text-[22px]' : 'text-[22px] md:text-[30px]'}`}>
+            <div className="flex flex-col justify-center min-w-0 pr-2">
+              {/* Fixed: Changed whitespace-nowrap to truncate to prevent pushing button off screen */}
+              <span className={`font-bold text-[#D4A22E] tracking-tight leading-none transition-all duration-300 ease-in-out truncate ${isScrolled ? 'text-[16px] sm:text-[18px] md:text-[22px]' : 'text-[18px] sm:text-[20px] md:text-[30px]'}`}>
                 Techhansa Technology
               </span>
             </div>
@@ -117,7 +119,7 @@ const Navbar = () => {
           {/* =========================================
               DESKTOP MENU LINKS (Hidden on Mobile)
               ========================================= */}
-          <div className="hidden lg:flex space-x-8 items-center relative">
+          <div className="hidden lg:flex shrink-0 space-x-4 xl:space-x-8 items-center relative h-full">
             <Link to="/" className="text-gray-700 hover:text-[#D4A22E] font-medium transition-colors">
               Home
             </Link>
@@ -127,20 +129,20 @@ const Navbar = () => {
             
             {/* Desktop Services Dropdown */}
             <div 
-              className={`relative group flex items-center transition-all duration-300 ease-in-out ${isScrolled ? 'h-[70px]' : 'h-[100px]'}`}
+              className={`relative group flex items-center h-full cursor-pointer`}
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => {
                 setIsServicesOpen(false);
                 setActiveSubMenu(null);
               }}
             >
-              <button className="flex items-center text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">
+              <button className="flex items-center text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px] outline-none">
                 Services
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
 
               {isServicesOpen && (
-                <div className={`absolute -left-14 w-60 bg-white shadow-xl border-t-2 border-[#D4A22E] animate-fade-in-down transition-all duration-300 ease-in-out ${isScrolled ? 'top-[70px]' : 'top-[100px]'}`}>
+                <div className={`absolute -left-14 w-60 bg-white shadow-xl border-t-2 border-[#D4A22E] animate-fade-in-down transition-all duration-300 top-full`}>
                   <div className="py-2">
                     {servicesData.map((service, index) => (
                       <div 
@@ -190,12 +192,13 @@ const Navbar = () => {
           {/* =========================================
               MOBILE MENU HAMBURGER BUTTON
               ========================================= */}
-          <div className="flex lg:hidden items-center">
+          {/* Fixed: Added shrink-0 and ml-2 to guarantee button visibility */}
+          <div className="flex lg:hidden items-center shrink-0 ml-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-600 hover:text-[#D4A22E] focus:outline-none p-2 transition-colors duration-200"
+              className="text-gray-600 hover:text-[#D4A22E] focus:outline-none p-1 sm:p-2 transition-colors duration-200"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -212,8 +215,8 @@ const Navbar = () => {
           MOBILE MENU OVERLAY (Smooth Dropdown)
           ========================================= */}
       <div 
-        className={`lg:hidden bg-white border-b border-gray-100 transition-all duration-300 ease-in-out overflow-hidden shadow-lg ${
-          isMobileMenuOpen ? 'max-h-[85vh] overflow-y-auto opacity-100' : 'max-h-0 opacity-0'
+        className={`lg:hidden absolute top-full left-0 w-full bg-white transition-all duration-300 ease-in-out overflow-hidden shadow-lg border-b ${
+          isMobileMenuOpen ? 'max-h-[85vh] overflow-y-auto opacity-100 border-gray-100' : 'max-h-0 opacity-0 border-transparent'
         }`}
       >
         <div className="px-4 pt-2 pb-6 space-y-2">
@@ -224,7 +227,7 @@ const Navbar = () => {
           <div>
             <button 
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-800 hover:text-[#D4A22E] hover:bg-gray-50 rounded-xl transition-colors"
+              className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-800 hover:text-[#D4A22E] hover:bg-gray-50 rounded-xl transition-colors outline-none"
             >
               Services
               <svg className={`w-5 h-5 transform transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-[#D4A22E]' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -237,7 +240,7 @@ const Navbar = () => {
                   <div key={index} className="space-y-1">
                     <button
                       onClick={() => setMobileActiveSubMenu(mobileActiveSubMenu === index ? null : index)}
-                      className="w-full flex justify-between items-center px-4 py-2.5 text-[15px] font-bold text-[#113a71] hover:text-[#D4A22E] rounded-lg transition-colors"
+                      className="w-full flex justify-between items-center px-4 py-2.5 text-[15px] font-bold text-[#113a71] hover:text-[#D4A22E] rounded-lg transition-colors outline-none"
                     >
                       {service.name}
                       <svg className={`w-4 h-4 transform transition-transform duration-300 ${mobileActiveSubMenu === index ? 'rotate-90 text-[#D4A22E]' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
