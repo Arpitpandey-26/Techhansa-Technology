@@ -571,7 +571,7 @@ export default function EndpointSecurity() {
             className="ep-section-head"
           >
             <div className="ep-kicker-bar"><span>Coverage</span></div>
-            <h2>Endpoint management, secured panel by panel.</h2>
+            <h2><span className='text-techGolden'>E</span>ndpoint management, secured panel by panel.</h2>
             <p className="ep-section-sub">Our End Point Management services cover the full surface of the modern workplace — from racks in the data center to the phone in someone's pocket.</p>
           </motion.div>
 
@@ -659,7 +659,7 @@ export default function EndpointSecurity() {
             className="ep-mdm-copy"
           >
             <div className="ep-kicker-bar"><span>Mobility</span></div>
-            <h2>Mobile Device Management</h2>
+            <h2><span className='text-techGolden'>M</span>obile Device Management</h2>
             <p>Until a few years ago, Mobile Device Management and desktop management were distinct entities. However, with the introduction of Windows 10 and recent versions of iOS, the operating systems on mobile devices, laptops, and tablets have converged, streamlining device management.</p>
             <p>This convergence, while beneficial, also introduces complexity into the environment, particularly when accommodating both BYOD and company-owned devices. To navigate this landscape, our mobility services offer secure access to mobile devices, management of the enterprise app store, device quarantine, remote wiping, and data backup.</p>
             <div className="ep-chip-row">
@@ -758,7 +758,7 @@ export default function EndpointSecurity() {
             className="ep-loop-copy"
           >
             <div className="ep-kicker-bar"><span>Closed Loop Security</span></div>
-            <h2>One posture, not three silos</h2>
+            <h2> <span className='text-techGolden'>O</span>ne posture, not three silos</h2>
             <p>Typically, individuals tend to consider endpoint security, network security, and SIEM as separate entities. However, our Closed Loop Security services adopt a comprehensive perspective when assessing the organization's security posture.</p>
             <p>We firmly believe that endpoints represent the most vulnerable aspect of an organization's security posture, necessitating continuous monitoring. Furthermore, while your SIEM solution diligently tracks numerous security incidents and events, we focus on correlating, analyzing, and applying analytics to the various tools at your disposal — identifying and mitigating risk by harnessing the collective insight of every tool in the loop.</p>
           </motion.div>

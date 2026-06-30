@@ -120,7 +120,7 @@ export default function DesktopVirtualization() {
   return (
     <div ref={rootRef} className="vdi-page relative">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+       
 
         .vdi-page{
           --ink:#0f172a; --blue:#1e3a8a; --paper:#f8fafc; --gold:#d4a22e; --gold-hover:#e4c77d;
@@ -260,8 +260,8 @@ export default function DesktopVirtualization() {
         <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="eyebrow">Digital Workplace &middot; Desktop Virtualization</span>
-            <h1 className="mt-4 mb-5 text-4xl md:text-6xl leading-[1.05]">
-              Desktop Virtualization <span style={{ background: "linear-gradient(100deg,var(--blue) 30%, var(--gold) 95%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>&mdash; VDI</span>
+            <h1 className="mt-4 mb-5 text-4xl md:text-6xl leading-[1.05] "><span className="text-gray-700"> Desktop Virtualization</span>
+              <span style={{ background: "linear-gradient(100deg,var(--blue) 30%, var(--gold) 95%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>&mdash; VDI</span>
             </h1>
             <p className="text-lg leading-relaxed max-w-[46ch] mb-7" style={{ color: "var(--ink-soft)" }}>
               Desktop virtualization offers a stable operating system environment for users across your organization, all while reducing overhead costs. Managed centrally, it minimizes the maintenance and administration workload for your IT staff &mdash; giving you the flexibility to patch, update, or upgrade desktops as needed.
@@ -316,7 +316,7 @@ export default function DesktopVirtualization() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="reveal">
             <div className="kicker-bar"><span>Mobility &amp; Efficiency</span></div>
-            <h2 className="text-2xl md:text-4xl leading-tight mb-4">Reach without compromising security</h2>
+            <h2 className="text-2xl md:text-4xl leading-tight mb-4"><span className="text-techGolden">R</span>each without compromising security</h2>
             <p className="text-base leading-relaxed mb-4" style={{ color: "var(--ink-soft)" }}>
               Desktop virtualization infrastructure extends the reach of desktops to remote workers and travelers without compromising your company's security protocols.
             </p>
@@ -343,7 +343,7 @@ export default function DesktopVirtualization() {
         <div className="max-w-6xl mx-auto">
           <div className="reveal max-w-2xl mb-12">
             <div className="kicker-bar"><span>Cloud Platforms</span></div>
-            <h2 className="text-2xl md:text-4xl leading-tight mb-4">VDI Cloud Solutions</h2>
+            <h2 className="text-2xl md:text-4xl leading-tight mb-4"><span className="text-techGolden">VDI</span> Cloud Solutions</h2>
             <p className="text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
               We provide complete VDI cloud solutions on the platforms enterprises already trust.
             </p>
@@ -400,17 +400,7 @@ export default function DesktopVirtualization() {
         </div>
       </section>
 
-      {/* CTA BAND */}
-      <section className="cta-band px-6 md:px-10 py-16 md:py-20">
-        <div className="cta-ring" aria-hidden="true"></div>
-        <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center text-center gap-5">
-          <h2 className="text-2xl md:text-4xl" style={{ color: "var(--paper)" }}>One desktop, delivered anywhere.</h2>
-          <p className="text-base leading-relaxed" style={{ color: "rgba(248,250,252,.68)" }}>
-            From data-center rack to the laptop on a kitchen table, our team designs and manages a VDI environment that's fast to roll out and easy to secure.
-          </p>
-          <button className="btn-gold rounded-xl px-7 py-3.5 font-semibold text-sm">Talk to a Specialist</button>
-        </div>
-      </section>
+     
 
      
     </div>

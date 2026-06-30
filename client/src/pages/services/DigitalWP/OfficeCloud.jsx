@@ -17,8 +17,8 @@ const pageStyles = `
   @keyframes rippleOut { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(2.2); opacity: 0; } }
   @keyframes scanH { 0% { top: 0; } 100% { top: 100%; } }
 
-  .hero-wrap { background: linear-gradient(135deg, #0b1629 0%, #0f172a 60%, #1a0d29 100%); padding: 120px 5% 80px; position: relative; overflow: hidden; min-height: 460px; display: flex; align-items: center; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
-  .hero-grid-bg { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(212,162,46,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(212,162,46,.08) 1px, transparent 1px); background-size: 50px 50px; }
+  .hero-wrap { background: linear-gradient(135deg, #5f6572 0%, #7695b8 60%, #0404046d 100%); padding: 120px 5% 80px; position: relative; overflow: hidden; min-height: 460px; display: flex; align-items: center; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
+ 
   .hero-scan { position: absolute; left: 0; right: 0; height: 2px; pointer-events: none; z-index: 2; background: linear-gradient(90deg, transparent, rgba(212,162,46,.6), transparent); animation: scanH 5s linear infinite; }
   .geo-float { position: absolute; border: 1px solid rgba(212,162,46,.25); animation: floatY 6s ease-in-out infinite; pointer-events: none; }
   .hero-content { position: relative; z-index: 4; max-width: 1280px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 3.5rem; }
@@ -71,7 +71,7 @@ const pageStyles = `
   .services-section { background: linear-gradient(180deg, #f8faff 0%, #fff 100%); padding: 5rem 5%; }
   .sec-head { text-align: center; max-width: 700px; margin: 0 auto 3.5rem; }
   .sec-eye { color: #D4A22E; font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 12px; }
-  .sec-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 14px; }
+  .sec-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #535761; line-height: 1.15; margin-bottom: 14px; }
   .sec-p { color: #64748b; font-size: .96rem; line-height: 1.85; }
   .gold-divider { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; }
   .gd-line { width: 36px; height: 2px; }
@@ -84,7 +84,7 @@ const pageStyles = `
   .svc-content { flex: 1; }
   .svc-badge { display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, rgba(212,162,46,.12), rgba(30,58,138,.06)); border: 1px solid rgba(212,162,46,.3); border-radius: 6px; padding: 4px 14px; margin-bottom: 14px; }
   .svc-badge-txt { color: #D4A22E; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .svc-title { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 800; color: #0f172a; margin-bottom: 14px; border-left: 4px solid #D4A22E; padding-left: 14px; }
+  .svc-title { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 800; color: #434853; margin-bottom: 14px; border-left: 4px solid #D4A22E; padding-left: 14px; }
   .svc-desc { color: #475569; font-size: .95rem; line-height: 1.85; margin-bottom: 20px; }
   .svc-check { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .svc-check li { display: flex; align-items: center; gap: 9px; font-size: .92rem; color: #374151; }
@@ -291,7 +291,7 @@ export default function OfficeCloud() {
         <div className="services-section" style={{ paddingBottom: 0 }}>
           <div className="sec-head">
             <div className="sec-eye">— Our O365 Services</div>
-            <h2 className="sec-h2">TechHansa Office 365 Services</h2>
+            <h2 className="sec-h2"><span className='text-techGolden'>T</span>echhansa Office 365 Services</h2>
             <p className="sec-p">End-to-end delivery from planning through to ongoing management.</p>
             <div className="gold-divider">
               <div className="gd-line gd-l"></div>
@@ -305,7 +305,7 @@ export default function OfficeCloud() {
           <div className="svc-row">
             <div className="svc-content">
               <div className="svc-badge"><span className="svc-badge-icon">🎯</span><span className="svc-badge-txt">Step 01</span></div>
-              <h3 className="svc-title">Consulting Services</h3>
+              <h3 className="svc-title"> <span className='text-techGolden'>C</span>onsulting Services</h3>
               <p className="svc-desc">Our consulting approach encompasses creation of planning documents, project plans, environment assessments, and user assessments. Our consultants collaborate with your IT teams to conduct a thorough evaluation and construct a meticulously planned roadmap aligned with your organizational objectives.</p>
             </div>
             <div className="svc-visual">
@@ -358,7 +358,7 @@ export default function OfficeCloud() {
           <div className="svc-row rev">
             <div className="svc-content">
               <div className="svc-badge"><span className="svc-badge-icon">🚀</span><span className="svc-badge-txt">Step 02</span></div>
-              <h3 className="svc-title">Deployment & Migration Services</h3>
+              <h3 className="svc-title"><span className='text-techGolden'>D</span>eployment & Migration Services</h3>
               <p className="svc-desc">Our team possesses the expertise to seamlessly implement a comprehensive end-to-end Office 365 solution. When migrating from other platforms, our process encompasses the transfer of all data and thorough verification of its quality. The migration process is tailored to specific elements and the complexity of the existing environment.</p>
             </div>
             <div className="svc-visual">
@@ -399,7 +399,7 @@ export default function OfficeCloud() {
           <div className="svc-row">
             <div className="svc-content">
               <div className="svc-badge"><span className="svc-badge-icon">🔧</span><span className="svc-badge-txt">Step 03</span></div>
-              <h3 className="svc-title">Ongoing Management Services</h3>
+              <h3 className="svc-title"><span className='text-techGolden'>O</span>ngoing Management Services</h3>
               <p className="svc-desc">These services encompass the capability to establish new user parameters, offer effective solutions for addressing performance degradation, and recommend upgrades or adoption of new versions. The primary goal is to free up client resources while simultaneously delivering management services for the new environment.</p>
               <ul className="svc-check">
                 <li><div className="svc-check-dot"></div>Service Delivery | Proactive Services</li>
@@ -466,15 +466,8 @@ export default function OfficeCloud() {
           </div>
         </div>
 
-        {/* ================= CTA STRIP ================= */}
-        <div className="cta-strip">
-          <h2 className="cta-h">Ready to unlock your Office 365 potential?</h2>
-          <p className="cta-p">Join 500+ enterprises who trust TechHansa for seamless O365 deployment, migration, and management.</p>
-          <div className="cta-btns">
-            <button className="btn-wh">Schedule a Consultation</button>
-           
-          </div>
-        </div>
+      
+      
       </div>
     </div>
   );

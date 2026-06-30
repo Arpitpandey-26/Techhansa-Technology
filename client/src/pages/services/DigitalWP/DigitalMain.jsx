@@ -277,8 +277,8 @@ export default function DigitalMain() {
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="text-[#D4A22E] text-sm font-bold tracking-widest uppercase mb-4">— What We Deliver</div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#113a71] mb-6">
-              Digital Workplace Solutions
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#113a71] mb-6"> <span className="text-techGolden">D</span>
+              igital Workplace Solutions
             </h2>
             <p className="text-gray-600 text-lg">
               TechHansa delivers intelligent operations management with complete visibility from application to storage, across physical, virtual, and cloud infrastructure.

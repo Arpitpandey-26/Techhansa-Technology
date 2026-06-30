@@ -68,13 +68,7 @@ const PAGE_CONTENT = {
     ],
   },
 
-  cta: {
-    heading: "Ready to Optimize Your User Experience?",
-    subtext:
-      "Join 500+ enterprises who trust TechHansa APM for seamless performance monitoring.",
-    primaryBtn: "Schedule a Demo",
-    secondaryBtn: "Download Brochure",
-  },
+ 
 };
 
 // ============================================================
@@ -673,8 +667,7 @@ export default function UserExperienceMonitoring() {
     <>
       {/* ✅ Global keyframe animations */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+       
 
         @keyframes floatShape {
           0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
@@ -721,8 +714,7 @@ export default function UserExperienceMonitoring() {
         {/* 5. Tech stack badges */}
         <TechStackSection content={PAGE_CONTENT.techStack} />
 
-        {/* 6. CTA strip */}
-        <CTASection content={PAGE_CONTENT.cta} />
+       
       </main>
     </>
   );

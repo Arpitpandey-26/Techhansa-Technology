@@ -139,8 +139,8 @@ const Monitoring = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-6xl font-extrabold text-[#113a71] mb-6 drop-shadow-sm">
-              Network Operations Centre
+            <h2 className="text-4xl md:text-6xl font-extrabold text-[#113a71] mb-6 drop-shadow-sm"> <span className='text-techGolden'>N</span>
+              etwork Operations Centre
             </h2>
             <div className="flex justify-center gap-2 mb-8">
                <span className="w-16 h-1 bg-[#D4A22E]"></span>

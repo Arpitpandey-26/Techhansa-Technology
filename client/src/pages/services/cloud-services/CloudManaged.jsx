@@ -87,8 +87,8 @@ const CloudManaged = () => {
               variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
               className="w-full lg:w-1/2"
             >
-              <h2 className="text-3xl md:text-5xl font-extrabold text-[#113a71] mb-8 leading-tight">
-                12 years of experience
+              <h2 className="text-3xl md:text-5xl font-extrabold text-[#113a71] mb-8 leading-tight"> <span className='text-techGolden'>12 </span>
+                 years of experience
               </h2>
               <div className="w-16 h-1.5 bg-[#D4A22E] mb-8 rounded-full"></div>
               <div className="text-gray-600 text-[17px] md:text-lg leading-relaxed text-justify space-y-6">
@@ -136,8 +136,8 @@ const CloudManaged = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#113a71] mb-6">
-              Network Operations Centre
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#113a71] mb-6"><span className='text-techGolden'>N</span>
+              etwork Operations Centre
             </h2>
             <div className="flex justify-center gap-2 mb-8">
               <span className="w-12 h-1.5 bg-[#D4A22E] rounded-full"></span>

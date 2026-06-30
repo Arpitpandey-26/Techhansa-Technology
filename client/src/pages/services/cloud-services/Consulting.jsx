@@ -103,8 +103,8 @@ const Consulting = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-[40px] font-extrabold text-[#113a71] mb-6 leading-tight drop-shadow-sm">
-                Expert Solutions for <br/> Security and Efficiency
+              <h2 className="text-3xl md:text-[40px] font-extrabold text-[#113a71] mb-6 leading-tight drop-shadow-sm"> <span className='text-techGolden'>E</span>
+                xpert Solutions for <br/> Security and Efficiency
               </h2>
               <div className="w-20 h-1.5 bg-[#C19326] mb-8 rounded-full shadow-[0_4px_10px_rgba(193,147,38,0.4)]"></div>
               
