@@ -110,7 +110,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col justify-center min-w-0 pr-2">
               {/* Fixed: Changed whitespace-nowrap to truncate to prevent pushing button off screen */}
-              <span className={`font-bold text-[#D4A22E] tracking-tight leading-none transition-all duration-300 ease-in-out truncate ${isScrolled ? 'text-[16px] sm:text-[18px] md:text-[22px]' : 'text-[18px] sm:text-[20px] md:text-[30px]'}`}>
+              <span className={`font-bold text-[#D4A22E] tracking-tight leading-tight transition-all duration-300 ease-in-out truncate ${isScrolled ? 'text-[16px] sm:text-[18px] md:text-[22px]' : 'text-[18px] sm:text-[20px] md:text-[30px]'}`}>
                 Techhansa Technology
               </span>
             </div>

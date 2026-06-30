@@ -1,6 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
+
+
+function GlobalStyles() {
+  return (
+    <style>{`
+
+    .gold{
+        background:linear-gradient(135deg,#D4A22E,#f0c84a,#b8860b);
+        -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      }
+                
+    `}</style>
+  );
+}
+
 /* ============================================================
    CUSTOM ANIMATED COUNTER COMPONENT (Reused for Stats)
    ============================================================ */
