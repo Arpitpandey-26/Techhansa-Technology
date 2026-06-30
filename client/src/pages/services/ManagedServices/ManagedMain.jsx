@@ -165,9 +165,7 @@ export default function ManagedServices() {
               Our Managed IT Services program offers an economical, adaptable, and scalable framework to meet your company's IT needs — crafted to optimize your technology investments while you focus on growing the business.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button className="rounded-xl px-7 py-3.5 font-bold text-sm text-white bg-gradient-to-br from-[#113a71] to-[#0a192f] shadow-lg shadow-[#113a71]/20 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300">
-                Talk to a Specialist
-              </button>
+             
               <button
                 onClick={() => scrollToId("solutions")}
                 className="rounded-xl px-7 py-3.5 font-bold text-sm text-[#113a71] border border-gray-300 hover:border-[#113a71] hover:bg-[#113a71]/5 hover:-translate-y-0.5 transition-all duration-300"
