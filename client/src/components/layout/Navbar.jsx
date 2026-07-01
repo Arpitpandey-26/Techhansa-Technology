@@ -5,12 +5,14 @@ const Navbar = () => {
   // Desktop States
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [isIndustryOpen, setIsIndustryOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Mobile States
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileActiveSubMenu, setMobileActiveSubMenu] = useState(null);
+  const [mobileIndustryOpen, setMobileIndustryOpen] = useState(false);
 
   const location = useLocation();
 
@@ -32,6 +34,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
     setMobileServicesOpen(false);
     setMobileActiveSubMenu(null);
+    setMobileIndustryOpen(false);
   }, [location.pathname]);
 
   // =========================================
@@ -90,6 +93,15 @@ const Navbar = () => {
     }
   ];
 
+  // Using standard lowercase URLs matching App.jsx Route definitions
+  const industryData = [
+    { name: "Technology", path: "/industry/technology" },
+    { name: "Banking & Finance", path: "/industry/banking-finance" },
+    { name: "Healthcare", path: "/industry/healthcare" },
+    { name: "Retail", path: "/industry/retail" },
+    { name: "Telecom", path: "/industry/telecom" }
+  ];
+
   return (
     <nav className={`w-full sticky top-0 z-50 transition-all duration-300 ease-in-out relative ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white shadow-sm border-b border-gray-100'}`}>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,20 +111,22 @@ const Navbar = () => {
           {/* =========================================
               LOGO AND BRAND NAME SECTION
               ========================================= */}
-          {/* Fixed: Added flex-1 and min-w-0 to allow proper shrinking/truncating */}
           <div className="flex-1 flex items-center cursor-pointer min-w-0">
-            <div className={`shrink-0 rounded-full flex items-center justify-center mr-2 md:mr-4 shadow-sm overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? 'w-[36px] h-[36px] md:w-[50px] md:h-[50px]' : 'w-[45px] h-[45px] md:w-[88px] md:h-[88px]'}`}>
-              <img 
-                src="/src/assets/logo.png" 
-                alt="Company Logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
+            <Link to="/">
+              <div className={`shrink-0 rounded-full flex items-center justify-center mr-2 md:mr-4 shadow-sm overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? 'w-[36px] h-[36px] md:w-[50px] md:h-[50px]' : 'w-[45px] h-[45px] md:w-[88px] md:h-[88px]'}`}>
+                <img 
+                  src="/src/assets/logo.png" 
+                  alt="Company Logo" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </Link>
             <div className="flex flex-col justify-center min-w-0 pr-2">
-              {/* Fixed: Changed whitespace-nowrap to truncate to prevent pushing button off screen */}
-              <span className={`font-bold text-[#D4A22E] tracking-tight leading-tight transition-all duration-300 ease-in-out truncate ${isScrolled ? 'text-[16px] sm:text-[18px] md:text-[22px]' : 'text-[18px] sm:text-[20px] md:text-[30px]'}`}>
-                Techhansa Technology
-              </span>
+              <Link to="/">
+                <span className={`font-bold text-[#D4A22E] tracking-tight leading-tight transition-all duration-300 ease-in-out truncate ${isScrolled ? 'text-[16px] sm:text-[18px] md:text-[22px]' : 'text-[18px] sm:text-[20px] md:text-[30px]'}`}>
+                  Techhansa Technology
+                </span>
+              </Link>
             </div>
           </div>
 
@@ -184,7 +198,40 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="#" className="text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">Industry</Link>
+            {/* 🔴 Desktop Industry Dropdown - FIXED 🔴 */}
+            <div 
+              className={`relative group flex items-center h-full cursor-pointer`}
+              onMouseEnter={() => setIsIndustryOpen(true)}
+              onMouseLeave={() => setIsIndustryOpen(false)}
+            >
+              {/* Added Link component here so clicking goes to /industry */}
+              <Link 
+                to="/industry"
+                onClick={() => setIsIndustryOpen(false)}
+                className="flex items-center text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px] outline-none"
+              >
+                Industry
+                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </Link>
+
+              {isIndustryOpen && (
+                <div className={`absolute -left-4 w-56 bg-white shadow-xl border-t-2 border-[#D4A22E] animate-fade-in-down transition-all duration-300 top-full`}>
+                  <div className="py-2">
+                    {industryData.map((item, index) => (
+                      <Link 
+                        key={index}
+                        to={item.path} 
+                        onClick={() => setIsIndustryOpen(false)}
+                        className="block px-6 py-3 text-[15px] font-medium text-gray-700 hover:bg-gray-50 hover:text-[#D4A22E] transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
             <Link to="#" className="text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">Partners</Link>
             <Link to="#" className="text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">Contact Us</Link>
           </div>
@@ -192,7 +239,6 @@ const Navbar = () => {
           {/* =========================================
               MOBILE MENU HAMBURGER BUTTON
               ========================================= */}
-          {/* Fixed: Added shrink-0 and ml-2 to guarantee button visibility */}
           <div className="flex lg:hidden items-center shrink-0 ml-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -243,7 +289,7 @@ const Navbar = () => {
                       className="w-full flex justify-between items-center px-4 py-2.5 text-[15px] font-bold text-[#113a71] hover:text-[#D4A22E] rounded-lg transition-colors outline-none"
                     >
                       {service.name}
-                      <svg className={`w-4 h-4 transform transition-transform duration-300 ${mobileActiveSubMenu === index ? 'rotate-90 text-[#D4A22E]' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                      <svg className={`w-4 h-4 transform transition-transform duration-300 ${mobileActiveSubMenu === index ? 'rotate-90 text-[#D4A22E]' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7-7"></path></svg>
                     </button>
 
                     {/* Mobile Nested Sub-items */}
@@ -266,7 +312,39 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Link to="#" className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-[#D4A22E] hover:bg-gray-50 rounded-xl transition-colors">Industry</Link>
+          {/* Mobile Industry Accordion */}
+          <div>
+            <button 
+              onClick={() => setMobileIndustryOpen(!mobileIndustryOpen)}
+              className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-800 hover:text-[#D4A22E] hover:bg-gray-50 rounded-xl transition-colors outline-none"
+            >
+              Industry
+              <svg className={`w-5 h-5 transform transition-transform duration-300 ${mobileIndustryOpen ? 'rotate-180 text-[#D4A22E]' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${mobileIndustryOpen ? 'max-h-[400px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+              <div className="pl-4 space-y-1 border-l-2 border-gray-100 ml-4 pb-2">
+                {/* Mobile specific link to the main Industry page */}
+                <Link
+                  to="/industry"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-4 py-2 text-[15px] font-bold text-[#113a71] hover:text-[#D4A22E] hover:bg-gray-50 rounded-lg transition-colors border-l-2 border-transparent hover:border-[#D4A22E]"
+                >
+                  All Industries Overview
+                </Link>
+                {industryData.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={item.path}
+                    className="block px-4 py-2 text-[15px] font-medium text-gray-600 hover:text-[#D4A22E] hover:bg-gray-50 rounded-lg transition-colors border-l-2 border-transparent hover:border-[#D4A22E]"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <Link to="#" className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-[#D4A22E] hover:bg-gray-50 rounded-xl transition-colors">Partners</Link>
           <Link to="#" className="block px-4 py-3 text-base font-medium text-gray-800 hover:text-[#D4A22E] hover:bg-gray-50 rounded-xl transition-colors">Contact Us</Link>
         </div>

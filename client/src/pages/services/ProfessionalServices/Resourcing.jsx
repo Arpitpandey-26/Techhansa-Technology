@@ -481,7 +481,7 @@ function TechExpertiseSection() {
   return (
     <section className="py-24 px-4 grid-bg">
       <div ref={ref} className="max-w-6xl mx-auto">
-        <SectionHeader pill="Technology Expertise" title="Professionals Across" accent="Multiple Technologies"
+        <SectionHeader pill="Technology Expertise" title="Professionals Across" accent="500+ Technologies"
           body="Our talent pool spans every layer of the modern technology stack — from frontend frameworks to cloud platforms, AI to cybersecurity."
           vis={vis} />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
@@ -553,7 +553,7 @@ function IndustriesSection() {
     { label: "Telecommunications", icon: <Radio size={18} /> },
     { label: "Logistics & Supply Chain", icon: <Truck size={18} /> },
     { label: "Education", icon: <GraduationCap size={18} /> },
-    { label: "Government & Public Sector", icon: <Building2 size={18} /> },
+  
     { label: "Energy & Utilities", icon: <Flame size={18} /> },
   ];
   return (

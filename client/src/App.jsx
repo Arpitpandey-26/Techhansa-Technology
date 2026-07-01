@@ -15,7 +15,6 @@ import AboutPage from './pages/AboutPage';
 
 /* =========================================
    SERVICES PAGES IMPORT
-   (Mapped exactly to your new folder structure)
    ========================================= */
 
 // 1. Cloud Services
@@ -53,6 +52,16 @@ import ProfessionalMain from './pages/services/ProfessionalServices/Professional
 import Implementation from './pages/services/ProfessionalServices/Implementation';
 import Resourcing from './pages/services/ProfessionalServices/Resourcing';
 
+// =========================================
+// INDUSTRY PAGES IMPORT
+// =========================================
+import IndustryMain from './pages/Industry/IndustryMain';
+import Banking from './pages/Industry/Banking';
+import Technology from './pages/Industry/Technology';
+import Healthcare from './pages/Industry/Healthcare';
+import Telecom from './pages/Industry/Telecom';
+import Retail from './pages/Industry/Retail';
+
 function ScrollToTopHelper() {
   const { pathname } = useLocation();
 
@@ -62,11 +71,10 @@ function ScrollToTopHelper() {
   return null;
 }
 
-
 function App() {
   return (
     <Router>
-          <ScrollToTopHelper />
+      <ScrollToTopHelper />
       <div className="flex flex-col min-h-screen">
         
         <Navbar />
@@ -85,8 +93,7 @@ function App() {
             <Route path="/services/cloud-services/cloud-managed-services" element={<CloudManaged />} />
             <Route path="/services/cloud-services/monitoring-and-help-desk" element={<Monitoring />} />
 
-            
-           {/* --- DIGITAL WORKPLACE ROUTES --- */}
+            {/* --- DIGITAL WORKPLACE ROUTES --- */}
             <Route path="/services/digital-workplace" element={<DigitalMain />} />
             <Route path="/services/digital-workplace/office-365" element={<OfficeCloud />} />
             <Route path="/services/digital-workplace/desktop-virtualization" element={<DesktopVirtualization />} />
@@ -95,13 +102,13 @@ function App() {
             <Route path="/services/digital-workplace/enterprise-app-store" element={<Enterprise />} />
 
             {/* --- AUTOMATION ROUTES --- */}
-             <Route path="/services/automation" element={<AutomationMain />} />
+            <Route path="/services/automation" element={<AutomationMain />} />
             <Route path="/services/automation/it-service-management" element={<ITservice />} />
             <Route path="/services/automation/devops" element={<Devops />} />
             <Route path="/services/automation/it-process-automation" element={<ITprocess />} />
 
             {/* --- MANAGED SERVICES ROUTES --- */}
-              <Route path="/services/managed-services" element={<ManagedMain />} />
+            <Route path="/services/managed-services" element={<ManagedMain />} />
             <Route path="/services/managed-services/data-center-services" element={<DataCenter />} />
             <Route path="/services/managed-services/database-management" element={<Database />} />
             <Route path="/services/managed-services/network-management" element={<Network />} />
@@ -109,9 +116,17 @@ function App() {
             <Route path="/services/managed-services/remote-infrastructure" element={<Remote />} />
 
             {/* --- PROFESSIONAL SERVICES ROUTES --- */}
-             <Route path="/services/professional-services" element={<ProfessionalMain />} />
+            <Route path="/services/professional-services" element={<ProfessionalMain />} />
             <Route path="/services/professional-services/implementation-services" element={<Implementation />} />
             <Route path="/services/professional-services/resourcing" element={<Resourcing />} />
+
+            {/* 🔴 NEW: INDUSTRY ROUTES (Ye missing the) 🔴 */}
+            <Route path="/industry" element={<IndustryMain />} />
+            <Route path="/industry/technology" element={<Technology />} />
+            <Route path="/industry/banking-finance" element={<Banking />} />
+            <Route path="/industry/healthcare" element={<Healthcare />} />
+            <Route path="/industry/retail" element={<Retail />} />
+            <Route path="/industry/telecom" element={<Telecom />} />
 
           </Routes>
         </main>
