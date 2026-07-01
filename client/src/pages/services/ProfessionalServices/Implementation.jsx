@@ -515,10 +515,10 @@ export default function ImplementationServices() {
           <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div data-reveal className="opacity-0 translate-y-8 transition-all duration-700 ease-out">
               <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--blue)" }}>
-                <Sparkles size={14} style={{ color: "var(--gold)" }} /> Professional Services &middot; Implementation
+                <span className="text-grey-600"></span> Professional Services &middot; Implementation
               </span>
-              <h1 className="mt-4 mb-5 text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.05]" style={{ color: "var(--ink)" }}>
-                Implementation{" "}
+              <h1 className="mt-4 mb-5 text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.05]" ><span className="text-grey-600">Implementation</span>
+                {" "}
                 <span style={{ background: "linear-gradient(100deg,var(--blue) 25%, var(--gold) 95%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                   Services
                 </span>
