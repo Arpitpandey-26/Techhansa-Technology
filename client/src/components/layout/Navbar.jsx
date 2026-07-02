@@ -233,7 +233,7 @@ const Navbar = () => {
             </div>
 
             <Link to="/investors" className="text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">Investors</Link>
-            <Link to="#" className="text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">Contact Us</Link>
+            <Link to="/contact" className="text-gray-500 hover:text-[#D4A22E] transition duration-300 font-medium text-[17px]">Contact Us</Link>
           </div>
 
           {/* =========================================

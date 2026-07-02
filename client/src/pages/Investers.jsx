@@ -61,7 +61,7 @@ const investors = [
     logo:        shaatikaLogo,
     tags:        ["Textile", "Apparel", "Craftsmanship", "Innovation"],
     description: "A business focused on quality textile and apparel solutions, contributing to innovation, craftsmanship, and customer excellence across the fashion and textile industry.",
-    website:     "#",
+    website:     "https://shaatikavastram.com",
   },
 ];
 
@@ -207,47 +207,59 @@ function PartnershipPanel({ tiltRef }) {
       }}
     >
       <div className="flex items-center justify-between mb-5">
-        <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--ink-faint)" }}>
+        <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#D4A22E" }}>
           Partnership Overview
         </span>
-        <span className="flex items-center gap-1.5 text-xs text-emerald-600">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-soft"></span> Active
-        </span>
+      
       </div>
 
-      {/* Central "TH" hub */}
+      {/* Central "TH" hub with logo */}
       <div className="flex flex-col items-center mb-6">
         <div
           className="w-16 h-16 rounded-2xl flex items-center justify-center mb-2 shadow-lg"
-          style={{ background: "linear-gradient(155deg,var(--blue),#2563eb)" }}
         >
-          <span className="text-xl font-extrabold text-white">TH</span>
+          <img 
+            src={techhansaLogo}
+            alt="Techhansa Technology"
+            className="w-14 h-14 object-contain"
+          />
         </div>
-        <span className="text-xs font-semibold text-gray-500">Techhansa Technology</span>
+        <span className="text-xs font-semibold" style={{ color: "#D4A22E" }}>Techhansa Technology</span>
       </div>
 
-      {/* Three investor rows */}
+      {/* Three investor rows with logos */}
       {[
-        { color: "#1e3a8a", bg: "rgba(30,58,138,.10)", initials: "TS", label: "Techhansa Solutions", role: "IT Services" },
-        { color: "#d4a22e", bg: "rgba(212,162,46,.14)", initials: "TF", label: "Techhansa Finance",   role: "Financial Services" },
-        { color: "#10b981", bg: "rgba(16,185,129,.12)", initials: "SV", label: "Shaatika Vastram",    role: "Textile & Apparel" },
+        { logo: techhansaLogo, label: "Techhansa Solutions", role: "IT Services", url: "https://techhansa.com" },
+        { logo: techhansaLogo, label: "Techhansa Finance",   role: "Financial Services", url: "#" },
+        { logo: shaatikaLogo,  label: "Shaatika Vastram",    role: "Textile & Apparel", url: "https://shaatikavastram.com" },
       ].map((row) => (
         <div
-          key={row.initials}
+          key={row.label}
           className="flex items-center gap-3 rounded-xl px-3 py-2.5 border mb-2 last:mb-0"
           style={{ background: "var(--paper)", borderColor: "var(--line)" }}
         >
           <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center flex-none text-white text-xs font-bold"
-            style={{ background: `linear-gradient(155deg, ${row.color}cc, ${row.color})` }}
+            className="w-9 h-9 rounded-xl flex items-center justify-center flex-none"
           >
-            {row.initials}
+            <img 
+              src={row.logo}
+              alt={row.label}
+              className="w-8 h-8 object-contain"
+            />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-sm font-semibold text-gray-700 truncate">{row.label}</div>
+            <a 
+              href={row.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold truncate hover:underline transition-colors duration-200"
+              style={{ color: "#D4A22E" }}
+            >
+              {row.label}
+            </a>
             <div className="text-[11px]" style={{ color: "var(--ink-faint)" }}>{row.role}</div>
           </div>
-          <CheckCircle2 size={14} className="flex-none" style={{ color: row.color }} />
+          <CheckCircle2 size={14} className="flex-none" style={{ color: "#D4A22E" }} />
         </div>
       ))}
     </div>

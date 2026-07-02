@@ -13,6 +13,7 @@ import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import InvestorsPartners from './pages/Investers'; 
+import Contactus from './pages/Contactus';
 
 /* =========================================
    SERVICES PAGES IMPORT
@@ -86,6 +87,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/investors" element={<InvestorsPartners />} />
+            <Route path="/contact" element={<Contactus />} />
 
             {/* --- CLOUD SERVICES ROUTES --- */}
             <Route path="/services/cloud-services" element={<CloudMain />} />
