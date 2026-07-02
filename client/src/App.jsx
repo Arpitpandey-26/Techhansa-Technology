@@ -11,7 +11,8 @@ import Footer from './components/layout/Footer';
    MAIN PAGES IMPORT
    ========================================= */
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage'; 
+import AboutPage from './pages/AboutPage';
+import InvestorsPartners from './pages/Investers'; 
 
 /* =========================================
    SERVICES PAGES IMPORT
@@ -84,6 +85,7 @@ function App() {
             {/* Core Routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/investors" element={<InvestorsPartners />} />
 
             {/* --- CLOUD SERVICES ROUTES --- */}
             <Route path="/services/cloud-services" element={<CloudMain />} />
