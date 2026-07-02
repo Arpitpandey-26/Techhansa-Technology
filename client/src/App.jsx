@@ -64,12 +64,24 @@ import Healthcare from './pages/Industry/Healthcare';
 import Telecom from './pages/Industry/Telecom';
 import Retail from './pages/Industry/Retail';
 
+/* =========================================
+   SCROLL TO TOP HELPER (Fixed)
+   ========================================= */
 function ScrollToTopHelper() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  },[pathname]);
+    // Disable default browser scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Use setTimeout to ensure the DOM is rendered before scrolling
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  }, [pathname]);
+  
   return null;
 }
 
@@ -124,7 +136,7 @@ function App() {
             <Route path="/services/professional-services/implementation-services" element={<Implementation />} />
             <Route path="/services/professional-services/resourcing" element={<Resourcing />} />
 
-            {/* 🔴 NEW: INDUSTRY ROUTES (Ye missing the) 🔴 */}
+            {/* 🔴 NEW: INDUSTRY ROUTES 🔴 */}
             <Route path="/industry" element={<IndustryMain />} />
             <Route path="/industry/technology" element={<Technology />} />
             <Route path="/industry/banking-finance" element={<Banking />} />

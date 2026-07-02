@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 /* ============================================================
@@ -24,8 +25,9 @@ const ringStyles = `
 /* ============================================================
    EXTRACTED: YOUR PREMIUM ANIMATED GOLDEN BUTTON
    ============================================================ */
-const GoldenButton = ({ children }) => (
+const GoldenButton = ({ children, onClick }) => (
   <button
+    onClick={onClick}
     className="
       relative overflow-hidden
       flex items-center gap-3
@@ -95,6 +97,7 @@ const GoldenButton = ({ children }) => (
 );
 
 const VisionTechnology = () => {
+  const navigate = useNavigate();
   const trackRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -289,7 +292,7 @@ const VisionTechnology = () => {
 
               {/* ★ Your Extracted Animated Golden Button */}
               <div>
-                <GoldenButton>Let's Build Together</GoldenButton>
+                <GoldenButton onClick={() => navigate('/contact')}>Let's Build Together</GoldenButton>
               </div>
 
             </motion.div>

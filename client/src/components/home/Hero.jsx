@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // 🔴 Added Link import
 import heroVideo from '../../assets/Hero-video.mp4';
 
 /* ============================================================
@@ -150,7 +151,10 @@ const Hero = () => {
               IMPLEMENTED PREMIUM CTA BUTTON
               ========================================= */}
           <div className="mt-4">
-            <GoldenButton>Get Started</GoldenButton>
+            {/* 🔴 Added Link wrapper to target the Contact form ID */}
+            <Link to="/contact#contact-form">
+              <GoldenButton>Get Started</GoldenButton>
+            </Link>
           </div>
 
         </div>

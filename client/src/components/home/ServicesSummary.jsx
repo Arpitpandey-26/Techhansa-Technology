@@ -1,7 +1,10 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const ServicesSummary = () => {
+  const navigate = useNavigate();
+  
   /* =========================================
      SCROLL ANIMATION LOGIC
      ========================================= */
@@ -19,34 +22,38 @@ const ServicesSummary = () => {
     {
       id: 1,
       title: "Cloud Services",
-    
+      route: "/services/cloud-services",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
     },
     {
       id: 2,
       title: "Digital Workplace",
-      
+      route: "/services/digital-workplace",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
     },
     {
       id: 3,
       title: "Automation",
-  
+      route: "/services/automation",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop"
     },
     {
       id: 4,
       title: "Managed Services",
-      
+      route: "/services/managed-services",
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
     },
     {
       id: 5,
       title: "Professional Services",
-    
+      route: "/services/professional-services",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
     }
   ];
+
+  const handleServiceClick = (route) => {
+    navigate(route);
+  };
 
   return (
     /* =========================================
@@ -84,9 +91,7 @@ const ServicesSummary = () => {
             We lead the architecture and implementation of highly impactful digital solutions, leveraging advanced tech stacks to solve unique business challenges and deliver exceptional measurable value.
           </p>
           
-          <button className="px-10 py-4 bg-techGolden hover:bg-goldenHover text-white font-bold rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-[0_8px_20px_rgba(212,162,46,0.4)] transform hover:-translate-y-1">
-            Explore
-          </button>
+         
         </div>
 
         {/* =========================================
@@ -98,7 +103,8 @@ const ServicesSummary = () => {
             {servicesData.map((service) => (
               <div 
                 key={service.id} 
-                className="w-[80vw] md:w-[420px] lg:w-[460px] h-[430px] bg-[#f8fafc] border border-gray-100/10 rounded-[2rem] p-6 flex flex-col justify-between group hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300 relative overflow-hidden"
+                className="w-[80vw] md:w-[420px] lg:w-[460px] h-[430px] bg-[#f8fafc] border border-gray-100/10 rounded-[2rem] p-6 flex flex-col justify-between group hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300 relative overflow-hidden cursor-pointer"
+                onClick={() => handleServiceClick(service.route)}
               >
                 <div className="flex justify-between items-start z-10">
                   <div>
@@ -109,7 +115,12 @@ const ServicesSummary = () => {
                       {service.year}
                     </p>
                   </div>
-                  <button className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100 group-hover:bg-techGolden group-hover:border-transparent transition-all duration-300 transform group-hover:scale-110">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleServiceClick(service.route);
+                    }}
+                    className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100 group-hover:bg-techGolden group-hover:border-transparent transition-all duration-300 transform group-hover:scale-110">
                     <svg 
                       className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors duration-300 transform -rotate-45 group-hover:rotate-0" 
                       fill="none" 
