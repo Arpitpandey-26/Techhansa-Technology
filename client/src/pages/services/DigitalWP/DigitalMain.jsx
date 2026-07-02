@@ -399,29 +399,7 @@ export default function DigitalMain() {
         </div>
       </section>
 
-      {/* ================= CTA SECTION ================= */}
-      <section className="py-24 bg-[#f4f7f9] border-t border-gray-200 relative overflow-hidden text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-        
-
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#113a71] leading-tight mb-6">
-            Start Your <span className="text-[#D4A22E]">Digital Journey</span> Today
-          </h2>
-          
-          <p className="text-gray-600 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Let TechHansa guide your organization through a complete digital transformation—maximizing productivity, security, and ROI.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#113a71] text-white px-10 py-4 rounded-xl font-bold text-lg shadow-[0_10px_20px_rgba(17,58,113,0.3)] hover:-translate-y-1 transition-all duration-300">
-              Get Started Today
-            </button>
-           
-          </div>
-
-        </div>
-      </section>
+     
 
     </div>
   );
