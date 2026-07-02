@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Services Data
 const services = [
@@ -11,6 +12,7 @@ const services = [
     description: "Office 365 is a productivity suite. Most companies stop after just migrating mail to the cloud. Our services are directed to getting you a higher ROI from your O365 investment by unlocking its full potential.",
     color: "#D4A22E",
     glowColor: "rgba(212, 162, 46, 0.15)",
+    link: "/services/digital-workplace/office-365"
   },
   {
     id: "02",
@@ -20,6 +22,7 @@ const services = [
     description: "Desktop virtualization can provide a stable operating system environment for users across your company while decreasing overheads and improving security across your entire digital workspace.",
     color: "#113a71",
     glowColor: "rgba(17, 58, 113, 0.15)",
+    link: "/services/digital-workplace/desktop-virtualization"
   },
   {
     id: "03",
@@ -29,6 +32,7 @@ const services = [
     description: 'We are all familiar with the concept of "App Store" for Smart phones, where applications are available and users can download. We bring this same seamless experience to your enterprise ecosystem.',
     color: "#D4A22E",
     glowColor: "rgba(212, 162, 46, 0.15)",
+    link: "/services/digital-workplace/enterprise-app-store"
   },
   {
     id: "04",
@@ -38,6 +42,7 @@ const services = [
     description: "When you embark on a journey for digital transformation, user experience is crucial for ensuring the adoption of productivity solutions. We monitor and optimize every touchpoint.",
     color: "#113a71",
     glowColor: "rgba(17, 58, 113, 0.15)",
+    link: "/services/digital-workplace/user-experience-monitoring"
   },
   {
     id: "05",
@@ -47,6 +52,7 @@ const services = [
     description: "End points are normally the weakest link in the corporate network. We protect against publicly known vulnerabilities and zero-day threats with comprehensive endpoint security strategies.",
     color: "#D4A22E",
     glowColor: "rgba(212, 162, 46, 0.15)",
+    link: "/services/digital-workplace/endpoint-security"
   },
 ];
 
@@ -171,7 +177,7 @@ export default function DigitalMain() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-[#D4A22E] to-[#C19326] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-[0_10px_20px_rgba(212,162,46,0.3)] hover:-translate-y-1 transition-all duration-300">
+              <button onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })} className="bg-gradient-to-r from-[#D4A22E] to-[#C19326] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-[0_10px_20px_rgba(212,162,46,0.3)] hover:-translate-y-1 transition-all duration-300">
                 Explore Solutions
               </button>
              
@@ -272,7 +278,7 @@ export default function DigitalMain() {
       </section>
 
       {/* ================= 3D CARDS SECTION ================= */}
-      <section className="py-24 bg-white">
+      <section id="solutions" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -292,12 +298,15 @@ export default function DigitalMain() {
             perspective: "1200px",
           }}>
             {services.map((svc, i) => (
-              <div
+              <Link
+                to={svc.link}
                 key={svc.id}
                 className="card-3d group"
                 onMouseEnter={() => setActiveCard(svc.id)}
                 onMouseLeave={() => setActiveCard(null)}
                 style={{
+                  display: "block",
+                  textDecoration: "none",
                   background: activeCard === svc.id ? "linear-gradient(135deg, #ffffff 0%, #f4f7f9 100%)" : "#ffffff",
                   border: `1px solid ${activeCard === svc.id ? "rgba(212,162,46,0.5)" : "rgba(17,58,113,0.1)"}`,
                   borderRadius: "24px",
@@ -363,7 +372,7 @@ export default function DigitalMain() {
                     {svc.description}
                   </p>
 
-                  <button
+                  <div
                     style={{
                       background: "transparent",
                       border: "none",
@@ -371,7 +380,7 @@ export default function DigitalMain() {
                       fontSize: 14,
                       fontWeight: 700,
                       cursor: "pointer",
-                      display: "flex",
+                      display: "inline-flex",
                       alignItems: "center",
                       gap: 8,
                       padding: 0,
@@ -382,7 +391,7 @@ export default function DigitalMain() {
                     onMouseLeave={(e) => (e.currentTarget.style.gap = "8px")}
                   >
                     Read More <span style={{ fontSize: 18 }}>→</span>
-                  </button>
+                  </div>
                 </div>
 
                 <div
@@ -392,7 +401,7 @@ export default function DigitalMain() {
                     transition: "all 0.4s ease",
                   }}
                 />
-              </div>
+              </Link>
             ))}
           </div>
 
