@@ -18,32 +18,32 @@ const ServicesSummary = () => {
   const servicesData = [
     {
       id: 1,
-      title: "Cloud Infrastructure",
-      year: "2026",
+      title: "Cloud Services",
+    
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
     },
     {
       id: 2,
       title: "Digital Workplace",
-      year: "2025",
+      
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
     },
     {
       id: 3,
-      title: "AI & Automation",
-      year: "2026",
+      title: "Automation",
+  
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop"
     },
     {
       id: 4,
-      title: "Managed Security",
-      year: "2024",
+      title: "Managed Services",
+      
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
     },
     {
       id: 5,
-      title: "Enterprise Consulting",
-      year: "2025",
+      title: "Professional Services",
+    
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
     }
   ];
