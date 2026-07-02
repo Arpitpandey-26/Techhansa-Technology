@@ -1,6 +1,6 @@
 import React, { useRef,  useLayoutEffect, useState  } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-
+import { Link } from 'react-router-dom';
 
 
 /* ============================================================
@@ -74,27 +74,32 @@ const CloudServices = () => {
     {
       title: "Consulting",
       desc: "Most organizations initially test waters with some small new application on the cloud. Since the application itself is new, the pains of migrations, tuning etc...",
-      icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+      icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+      link: "/services/cloud-services/consulting"
     },
     {
       title: "Architecting",
       desc: "Though organizations have a strategic plan in place to solve their critical business challenges by leveraging on cloud technology, their existing physical architecture...",
-      icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+      icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
+      link: "/services/cloud-services/architecting-services"
     },
     {
       title: "Migrating & Deployment",
       desc: "To keep the cloud transition or migration risk free, it is required that enterprises get access to reliable cloud service partners who have the experience and expertise...",
-      icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+      icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12",
+      link: "/services/cloud-services/migrating-and-deployment"
     },
     {
       title: "Managed Services",
       desc: "With our cloud managed services, you can be assured of quality support on your public, hybrid or private cloud architecture. Let us manage your cloud, so that your...",
-      icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+      icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+      link: "/services/cloud-services/cloud-managed-services"
     },
     {
       title: "Monitoring & Help Desk",
       desc: "In today’s day and age your customers need to access services 24x7 through a device which is convenient to them. The IT systems therefore need to be robust enough...",
-      icon: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+      icon: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9",
+      link: "/services/cloud-services/monitoring-and-help-desk"
     }
   ];
 
@@ -243,9 +248,10 @@ const CloudServices = () => {
   className="flex flex-nowrap gap-6 md:gap-10 pl-4 md:pl-10 pr-24 items-stretch py-10"
 >
                 {solutions.map((item, index) => (
-                  <div 
+                  <Link 
+                    to={item.link}
                     key={index} 
-                    className="w-[320px] md:w-[380px] flex-shrink-0 bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-transform duration-300 group"
+                    className="w-[320px] md:w-[380px] flex-shrink-0 bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-transform duration-300 group block"
                   >
                     <div>
                       <div className="flex justify-between items-start mb-6">
@@ -269,7 +275,7 @@ const CloudServices = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d={item.icon}></path>
                        </svg>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </motion.div>
             </div>
